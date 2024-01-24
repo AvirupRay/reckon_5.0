@@ -1,5 +1,5 @@
 ### Colors:
-bg-#FBF5DA
+bg-![yellow](https://readme-swatches.vercel.app/FBF5DA):#FBF5DA
 1. ![yellow](https://readme-swatches.vercel.app/97AD5C) : #97AD5C
 2.
 
