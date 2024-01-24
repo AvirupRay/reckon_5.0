@@ -16,15 +16,15 @@ body {
   margin: auto;
   margin-top: 50px;
   border-radius: 20px;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 .textarea {
-  background: rgba(219, 234, 195, 1);
+  background: #dbeac3;
   color: black;
   height: 50px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 90%;
+  width: 95%;
+  margin-top: 3px;
+  margin-bottom: 3px;
   padding-left: 20px;
   border-radius: 10px;
 }
@@ -46,8 +46,11 @@ body {
   background-color: black;
   color: antiquewhite;
 }
-.bargraph {
-  height: 100%;
-  width: 100%;
-  padding-left: 50px;
+.textdiv {
+  background-color: antiquewhite;
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  padding-bottom: 5px;
+  padding-top: 5px;
 }

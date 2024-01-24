@@ -9,7 +9,7 @@ const Supplier = () => {
   console.log(Foodlist);
   return (
     <div className=" flex h-[90vh] m-2 ">
-      <div className=" bg-green-500 flex-1">
+      <div className="flex-1">
         <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
       </div>
 
