@@ -8,6 +8,7 @@ const Supplier = () => {
   return (
     <div>
       <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />;
+      {console.log(Foodlist)}
       <Bar />;
     </div>
   );
