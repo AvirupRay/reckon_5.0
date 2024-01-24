@@ -7,8 +7,7 @@ const Supplier = () => {
   const [Foodlist, setFoodlist] = useState([]);
   return (
     <div>
-      <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
-      ;
+      <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />;
       <Bar />;
     </div>
   );
