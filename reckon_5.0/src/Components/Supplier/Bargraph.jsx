@@ -47,8 +47,10 @@ function Bargraph() {
   };
 
   return (
-    <div className="bargraph">
-      <Bar options={option} data={data} />
+    <div className=" px-[1.5vw] py-[1vw]">
+      <div className="  bg-[#f1f1f1] h-[38vh] px-[1.5vw] py-[1vw] rounded-md border-b-2 border-[#d1d1d1] shadow flex items-center justify-center">
+        <Bar options={option} data={data} className="w-[30vw] h-[30vw]" />
+      </div>
     </div>
   );
 }

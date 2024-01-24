@@ -9,24 +9,39 @@ body {
   width: 100%;
 }
 .theform {
-  height: 500px;
+  height: 75vh;
   width: 80%;
   text-align: center;
   background-color: #cce2a7;
   margin: auto;
   margin-top: 50px;
   border-radius: 20px;
-  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.textdiv {
+  display: flex;
+  flex-direction: column;
+  background-color: #fafafa;
+  height: 45vh;
+  width: 90%;
+  margin: auto;
+  border-radius: 15px;
+  /* padding-bottom: 1rem;
+  padding-top: 1rem; */
+  padding: 0.8rem 0.85rem;
 }
 .textarea {
   background: #dbeac3;
   color: black;
-  height: 70px;
-  width: 95%;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  flex-grow: 1;
+  /* width: 95%; */
+  margin: 1.2rem 0;
   padding-left: 20px;
   border-radius: 10px;
+  font-weight: 500;
 }
 .textarea:focus {
   outline: none;
@@ -41,17 +56,13 @@ body {
   width: 100px;
   border-radius: 100px;
   margin: auto;
+  transition: all 0.25s ease-in-out;
+  font-weight: 800;
 }
 .btn:hover {
   background-color: black;
   color: antiquewhite;
 }
-.textdiv {
-  background-color: #fafafa;
-  height: fit-content;
-  width: 90%;
-  margin: auto;
-  border-radius: 15px;
-  padding-bottom: 5px;
-  padding-top: 5px;
+.btn:active {
+  scale: 0.95;
 }

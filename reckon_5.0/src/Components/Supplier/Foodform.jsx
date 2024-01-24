@@ -23,6 +23,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             placeholder="Name of the Food"
             className="textarea"
             type="type"
+            required
           />
           <input
             onChange={(e) => setQuantity(e.target.value)}
@@ -30,6 +31,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             placeholder="Quantity"
             className="textarea"
             type="number"
+            required
           />
           <input
             onChange={(e) => setDate(e.target.value)}
@@ -37,12 +39,13 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             placeholder="Expiry Date (DD/MM/YYYY)"
             className="textarea"
             type="text"
+            required
           />
         </div>
         <br />
         <br />
         <button type="submit" className="btn">
-          Add
+          ADD
         </button>
       </form>
     </div>
