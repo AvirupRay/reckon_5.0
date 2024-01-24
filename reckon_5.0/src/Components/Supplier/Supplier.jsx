@@ -6,6 +6,7 @@ import FoodItems from "./FoodItems";
 
 const Supplier = () => {
   const [Foodlist, setFoodlist] = useState([]);
+  console.log(Foodlist);
   return (
     <div className=" flex h-[90vh] m-2 ">
       <div className=" bg-green-500 flex-1">
