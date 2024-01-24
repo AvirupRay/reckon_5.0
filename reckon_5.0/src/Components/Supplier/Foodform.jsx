@@ -16,31 +16,29 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
   return (
     <div>
       <form onSubmit={submitted} className="theform">
-        <input
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-          placeholder="Name of the Food"
-          className="textarea"
-          type="type"
-        />
-        <br />
-        <br />
-        <input
-          onChange={(e) => setQuantity(e.target.value)}
-          value={quantity}
-          placeholder="Quantity"
-          className="textarea"
-          type="number"
-        />
-        <br />
-        <br />
-        <input
-          onChange={(e) => setDate(e.target.value)}
-          value={date}
-          placeholder="Expiry Date (DD/MM/YYYY)"
-          className="textarea"
-          type="text"
-        />
+        <div className="textdiv">
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            placeholder="Name of the Food"
+            className="textarea"
+            type="type"
+          />
+          <input
+            onChange={(e) => setQuantity(e.target.value)}
+            value={quantity}
+            placeholder="Quantity"
+            className="textarea"
+            type="number"
+          />
+          <input
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+            placeholder="Expiry Date (DD/MM/YYYY)"
+            className="textarea"
+            type="text"
+          />
+        </div>
         <br />
         <br />
         <button type="submit" className="btn">
