@@ -10,7 +10,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
     e.preventDefault();
     setFoodlist([{ name: name, quantity: quantity, date: date }, ...Foodlist]);
     setName("");
-    setQuantity();
+    setQuantity("");
     setDate("");
   }
   return (
