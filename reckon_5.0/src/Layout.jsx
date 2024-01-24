@@ -4,7 +4,7 @@ import Home from "./Components/HomePage/Home";
 import Header from "./Components/Header/Header";
 
 const Layout = () => {
-  console.log("layout");
+  // console.log("layout");
   return (
     <div>
       <Header />

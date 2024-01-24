@@ -7,7 +7,7 @@ const Header = () => {
       <NavLink
         to="/supplr"
         className={() =>
-          ` bg-[#ebebeb] px-2 py-1 rounded-md shadow-md font-semibold hover:bg-[#fff5ca] transition-colors`
+          ` bg-[#ebebeb] px-2 py-1 rounded-md shadow-md font-semibold hover:bg-[#fff5ca] transition-colors sticky`
         }
       >
         Supplier's Page
