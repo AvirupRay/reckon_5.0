@@ -2,11 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Home = () => {
-  return (
-    <div>
-      <NavLink to="/supplr">supp</NavLink>
-    </div>
-  );
+  return <div>its a home page</div>;
 };
 
 export default Home;
