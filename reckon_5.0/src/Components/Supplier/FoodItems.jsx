@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
 const FoodItems = ({ Foodlist }) => {
+  let len = Foodlist.length;
+  const [foodLength, setFoodLength] = useState(true);
+  useEffect(() => {
+    if (len != 0) {
+      setFoodLength(false);
+    } else if (len == 0) {
+      setFoodLength(true);
+    }
+  }, [foodLength, len]);
+  console.log(foodLength);
   return (
     <>
       <div className=" px-10 py-10 h-full ">
@@ -22,6 +33,13 @@ const FoodItems = ({ Foodlist }) => {
               TODAY
             </div>
           </div>
+          {foodLength ? (
+            <span className=" bg-slate-100 px-4 py-3 absolute top-[50%] left-[50%] [transform:translate(-50%,-50%)] rounded-md font-semibold shadow text-[#3a3838] transition-all">
+              Add Some Items....
+            </span>
+          ) : (
+            <span></span>
+          )}
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth drop-shadow">
             {Foodlist.map((dish) => (
               <li className=" bg-[#FFFCFC] rounded-xl my-5 px-5 flex py-[3%] justify-around">
