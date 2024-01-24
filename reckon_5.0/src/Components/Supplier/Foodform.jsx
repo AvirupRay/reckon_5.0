@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "../../App.css";
 
 const Foodform = ({ Foodlist, setFoodlist }) => {
   const [name, setName] = useState("");
@@ -14,11 +15,12 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
   }
   return (
     <div>
-      <form onSubmit={submitted}>
+      <form onSubmit={submitted} className="theform">
         <input
           onChange={(e) => setName(e.target.value)}
           value={name}
           placeholder="Name of the Food"
+          className="textarea"
         />
         <br />
         <br />
@@ -26,6 +28,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
           onChange={(e) => setQuantity(e.target.value)}
           value={quantity}
           placeholder="Quantity"
+          className="textarea"
         />
         <br />
         <br />
@@ -33,6 +36,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
           onChange={(e) => setDate(e.target.value)}
           value={date}
           placeholder="Expiry Date"
+          className="textarea"
         />
         <br />
         <br />

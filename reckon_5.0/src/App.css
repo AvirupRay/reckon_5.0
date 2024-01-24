@@ -8,3 +8,41 @@ body {
   height: 100%;
   width: 100%;
 }
+.theform {
+  height: 100%;
+  width: 80%;
+  text-align: center;
+  background-color: #cce2a7;
+  margin: auto;
+  margin-top: 50px;
+  border-radius: 20px;
+  padding-top: 10px;
+}
+.textarea {
+  background: rgba(219, 234, 195, 1);
+  color: black;
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 90%;
+  padding-left: 20px;
+  border-radius: 10px;
+}
+.textarea:focus {
+  outline: none;
+}
+.textarea::placeholder {
+  color: black;
+  opacity: 0.8; /* Firefox */
+}
+.btn {
+  border: 2px solid black;
+  height: 40px;
+  width: 80px;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+.btn:hover {
+  background-color: black;
+  color: antiquewhite;
+}
