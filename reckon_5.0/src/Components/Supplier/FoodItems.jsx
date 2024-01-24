@@ -1,7 +1,15 @@
 import React from "react";
 
-const FoodItems = () => {
-  return <div>FoodItems</div>;
+const FoodItems = ({ Foodlist }) => {
+  return (
+    <>
+      <ul>
+        {Foodlist.map((e) => (
+          <li>{e.name}</li>
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default FoodItems;
