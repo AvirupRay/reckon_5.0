@@ -42,9 +42,11 @@ body {
   padding-left: 20px;
   border-radius: 10px;
   font-weight: 500;
+  border: 0.175rem solid #dbeac3;
 }
 .textarea:focus {
   outline: none;
+  border: 0.175rem solid #8e9780;
 }
 .textarea::placeholder {
   color: black;

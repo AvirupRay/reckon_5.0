@@ -15,7 +15,7 @@ const FoodItems = ({ Foodlist }) => {
   return (
     <>
       <div className=" px-10 py-10 h-full ">
-        <div className=" bg-[#D9D9D9] px-9 pt-9 rounded-lg h-full relative border-b-4 border-[#858383]">
+        <div className=" [background:radial-gradient(125%_125%_at_50%_10%,#f3ffdf_40%,#beaeae_100%)] inset-0 px-9 pt-9 rounded-lg h-full relative backdrop-blur">
           <div className=" absolute top-[-10%] left-[3%] bg-[#6A7A50] text-white px-[2vw] py-[1vw] rounded-md text-l font-semibold  drop-shadow-md ">
             ALL ITEMS
           </div>
@@ -40,9 +40,11 @@ const FoodItems = ({ Foodlist }) => {
           ) : (
             <span></span>
           )}
-          <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth drop-shadow">
+          <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
             {Foodlist.map((dish) => (
-              <li className=" bg-[#FFFCFC] rounded-xl my-5 px-5 flex py-[3%] justify-around">
+              <li className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-around border-2 border-[#adadad]">
+                {/* <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+                <div class="absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"></div> */}
                 <span className=" flex-1">{dish.name}</span>
                 <span className=" flex-1">Quantity: {dish.quantity}</span>
                 <span className=" flex-1">Best Before: {dish.date}</span>
