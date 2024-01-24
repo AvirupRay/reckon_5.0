@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Foodform from "./Foodform";
-import Bar from "./Bar";
+import Bar from "./Bargraph";
 import FoodItems from "./FoodItems";
 
 const Supplier = () => {
@@ -18,7 +18,7 @@ const Supplier = () => {
           <Bar />
         </div>
         <div className=" bg-green-100 h-[48vh]">
-          <FoodItems />
+          <FoodItems Foodlist={Foodlist} />
         </div>
       </div>
     </div>
