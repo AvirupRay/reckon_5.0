@@ -13,11 +13,9 @@ const Supplier = () => {
         <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
       </div>
 
-      <div className=" bg-orange-200 flex-[2] flex-col">
-        <div className=" bg-[#6dd3ec] h-[42vh]">
-          <Bar />
-        </div>
-        <div className=" bg-green-100 h-[48vh]">
+      <div className=" flex-[2] flex-col">
+        <div className=" bg-[#6dd3ec] h-[42vh]">{/* <Bar /> */}</div>
+        <div className=" h-[48vh]">
           <FoodItems Foodlist={Foodlist} />
         </div>
       </div>
