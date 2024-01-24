@@ -1,10 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import Home from "./Components/HomePage/Home";
 
 const Layout = () => {
+  console.log("layout");
   return (
     <div>
-      <Link to="/Supplier">supp</Link>
+      <Home />
+      <Outlet />
     </div>
   );
 };
