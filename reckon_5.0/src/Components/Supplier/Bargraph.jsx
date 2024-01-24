@@ -36,12 +36,12 @@ function Bargraph() {
       {
         label: "Product A",
         data: [20, 30, 40, 50, 60, 70],
-        backgroundColor: "green",
+        backgroundColor: "rgb(138,165,92)",
       },
       {
         label: "Product B",
         data: [15, 20, 25, 40, 45, 60],
-        backgroundColor: "blue",
+        backgroundColor: "rgb(204,226,167)",
       },
     ],
   };
