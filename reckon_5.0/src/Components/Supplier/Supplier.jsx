@@ -14,7 +14,9 @@ const Supplier = () => {
       </div>
 
       <div className=" flex-[2] flex-col">
-        <div className=" bg-[#6dd3ec] h-[42vh]">{/* <Bar /> */}</div>
+        <div className=" bg-[#6dd3ec] h-[42vh]">
+          <Bar />
+        </div>
         <div className=" h-[48vh]">
           <FoodItems Foodlist={Foodlist} />
         </div>
