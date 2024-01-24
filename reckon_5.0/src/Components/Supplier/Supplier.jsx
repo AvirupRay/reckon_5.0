@@ -1,7 +1,14 @@
 import React from "react";
+import { useState } from "react";
+import Foodform from "./Foodform";
 
 const Supplier = () => {
-  return <div>Supplier page</div>;
+  const [Foodlist, setFoodlist] = useState([]);
+  return (
+    <div>
+      <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
+    </div>
+  );
 };
 
 export default Supplier;
