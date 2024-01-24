@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className=" bg-[#dbd7b4] px-5 py-2 flex justify-around">
+    <div className=" bg-[#dbd7b4] px-5 py-2 flex justify-around rounded-md mx-2 my-[.5rem]">
       <NavLink
         to="/supplr"
         className={() =>

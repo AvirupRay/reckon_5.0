@@ -7,7 +7,7 @@ import FoodItems from "./FoodItems";
 const Supplier = () => {
   const [Foodlist, setFoodlist] = useState([]);
   return (
-    <div className=" flex h-[90vh] m-2 ">
+    <div className=" flex h-[90vh] mx-2">
       <div className="flex-1 ">
         <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
       </div>
