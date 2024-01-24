@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+import "../../App.css";
 import {
   BarElement,
   CategoryScale,
@@ -46,7 +47,7 @@ function Bargraph() {
   };
 
   return (
-    <div className="Bargraph">
+    <div className="bargraph">
       <Bar options={option} data={data} />
     </div>
   );
