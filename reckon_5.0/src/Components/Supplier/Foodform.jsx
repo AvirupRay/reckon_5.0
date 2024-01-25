@@ -4,7 +4,7 @@ import "../../App.css";
 
 const Foodform = ({ Foodlist, setFoodlist }) => {
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState("");
   function submitted(e) {
     e.preventDefault();
@@ -13,8 +13,20 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
       ...Foodlist,
     ]);
     setName("");
-    setQuantity("");
+    setQuantity(1);
     setDate("");
+  }
+  function minus(e) {
+    e.preventDefault();
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+  function plus(e) {
+    e.preventDefault();
+    if (quantity < 32) {
+      setQuantity(quantity + 1);
+    }
   }
   return (
     <div>
@@ -28,14 +40,25 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             type="type"
             required
           />
-          <input
-            onChange={(e) => setQuantity(e.target.value)}
-            value={quantity}
-            placeholder="Quantity"
-            className="textarea"
-            type="number"
-            required
-          />
+          <div className="textarea">
+            Quantity
+            <button onClick={minus} className="lilbtn">
+              -
+            </button>
+            <input
+              onChange={(e) => setQuantity(e.target.value)}
+              value={quantity}
+              placeholder="Quantity"
+              type="number"
+              min={0}
+              max={64}
+              className="bg-transparent text-center"
+              required
+            />
+            <button onClick={plus} className="lilbtn">
+              +
+            </button>
+          </div>
           <input
             onChange={(e) => setDate(e.target.value)}
             value={date}

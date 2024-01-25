@@ -43,6 +43,9 @@ body {
   border-radius: 10px;
   font-weight: 500;
   border: 0.175rem solid #dbeac3;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
 }
 .textarea:focus {
   outline: none;
@@ -67,4 +70,13 @@ body {
 }
 .btn:active {
   scale: 0.95;
+}
+.lilbtn {
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: auto;
+  transition: all 0.25s ease-in-out;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 20px;
 }
