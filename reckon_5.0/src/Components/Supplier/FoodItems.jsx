@@ -11,7 +11,6 @@ const FoodItems = ({ Foodlist }) => {
       setFoodLength(true);
     }
   }, [foodLength, len]);
-  console.log(foodLength);
   return (
     <>
       <div className=" px-10 py-10 h-full ">
@@ -42,7 +41,10 @@ const FoodItems = ({ Foodlist }) => {
           )}
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
             {Foodlist.map((dish) => (
-              <li className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-around drop-shadow">
+              <li
+                className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-around drop-shadow"
+                key={dish.id}
+              >
                 <span className=" flex-1">{dish.name}</span>
                 <span className=" flex-1">Quantity: {dish.quantity}</span>
                 <span className=" flex-1">Best Before: {dish.date}</span>

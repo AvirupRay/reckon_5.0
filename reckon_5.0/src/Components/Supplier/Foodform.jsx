@@ -4,11 +4,14 @@ import "../../App.css";
 
 const Foodform = ({ Foodlist, setFoodlist }) => {
   const [name, setName] = useState("");
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(0);
   const [date, setDate] = useState("");
   function submitted(e) {
     e.preventDefault();
-    setFoodlist([{ name: name, quantity: quantity, date: date }, ...Foodlist]);
+    setFoodlist([
+      { name: name, quantity: quantity, date: date, id: Date.now() },
+      ...Foodlist,
+    ]);
     setName("");
     setQuantity("");
     setDate("");
