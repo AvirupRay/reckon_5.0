@@ -8,6 +8,7 @@ import Supplier from "./Components/Supplier/Supplier.jsx";
 import Home from "./Components/HomePage/Home.jsx";
 import { Provider } from "react-redux";
 import { store } from "./Apps/store.js";
+import Login from "./Components/Login/Login.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "supplr",
         element: <Supplier />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
