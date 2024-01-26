@@ -13,6 +13,7 @@ export const foodSlice = createSlice({
         name: action.payload.name,
         quantity: action.payload.quantity,
         date: action.payload.date,
+        status: action.payload.status,
         id: nanoid(),
       };
       state.Foodlist.push(foodItem);

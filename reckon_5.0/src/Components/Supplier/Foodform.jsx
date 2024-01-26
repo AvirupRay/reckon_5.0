@@ -10,10 +10,13 @@ const Foodform = () => {
   const [date, setDate] = useState("");
   const [checkplus, setCheckPlus] = useState(false);
   const [checkminus, setCheckMinus] = useState(false);
+  const [status, setStatus] = useState(false);
   const Dispatch = useDispatch();
+
+  //to submit the form
   function submitted(e) {
     e.preventDefault();
-    Dispatch(addFoodItems({ name, quantity, date }));
+    Dispatch(addFoodItems({ name, quantity, date, status }));
     setName("");
     setQuantity(1);
     setDate("");
@@ -109,7 +112,7 @@ const Foodform = () => {
               onMouseDown={checkminustrue}
               onMouseUp={checkminusfalse}
             >
-              -
+              {"\u2212"}
             </button>
             <input
               onChange={(e) => setQuantity(e.target.value)}
@@ -126,17 +129,19 @@ const Foodform = () => {
               onMouseDown={checkplustrue}
               onMouseUp={checkplusfalse}
             >
-              +
+              {"\u002b"}
             </button>
           </div>
-          <input
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-            placeholder="Expiry Date (DD/MM/YYYY)"
-            className="textarea"
-            type="date"
-            required
-          />
+          <div className="textarea">
+            Date
+            <input
+              onChange={(e) => setDate(e.target.value)}
+              value={date}
+              className="datetext"
+              type="date"
+              required
+            />
+          </div>
         </div>
         <br />
         <br />

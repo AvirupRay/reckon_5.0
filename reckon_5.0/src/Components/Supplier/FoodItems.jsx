@@ -13,6 +13,7 @@ const FoodItems = () => {
       setFoodLength(true);
     }
   }, [foodLength, len]);
+  //console.log(Foodlist);
   return (
     <>
       <div className=" px-10 py-10 h-full ">
