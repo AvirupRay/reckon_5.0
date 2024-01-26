@@ -1,11 +1,13 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../App.css";
 
 const Foodform = ({ Foodlist, setFoodlist }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState("");
+  const [checkplus, setCheckPlus] = useState(false);
+  const [checkminus, setCheckMinus] = useState(false);
   function submitted(e) {
     e.preventDefault();
     setFoodlist([
@@ -16,18 +18,77 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
     setQuantity(1);
     setDate("");
   }
+
+  //to minus the quantity
   function minus(e) {
     e.preventDefault();
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   }
+
+  //to add the quantity
   function plus(e) {
     e.preventDefault();
     if (quantity < 32) {
       setQuantity(quantity + 1);
     }
   }
+
+  //to check if mouse is pressed or not on add button
+  function checkplustrue(e) {
+    e.preventDefault();
+    setCheckPlus(true);
+  }
+  function checkplusfalse(e) {
+    e.preventDefault();
+    setCheckPlus(false);
+  }
+
+  //to check if mouse is pressed or not on minus button
+  function checkminustrue(e) {
+    e.preventDefault();
+    setCheckMinus(true);
+  }
+  function checkminusfalse(e) {
+    e.preventDefault();
+    setCheckMinus(false);
+  }
+
+  // checking if plus is true
+  useEffect(() => {
+    if (checkplus) {
+      console.log(quantity);
+      let n = quantity;
+      var interval = setInterval(() => {
+        if (n < 32) {
+          setQuantity((prev) => prev + 1);
+          n++;
+        }
+      }, 200);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [checkplus]);
+
+  //checking if minus is true
+  useEffect(() => {
+    if (checkminus) {
+      console.log(quantity);
+      let n = quantity;
+      var interval = setInterval(() => {
+        if (n > 1) {
+          setQuantity((prev) => prev - 1);
+          n--;
+        }
+      }, 200);
+    }
+    return () => {
+      clearInterval(interval);
+    };
+  }, [checkminus]);
+
   return (
     <div>
       <form onSubmit={submitted} className="theform">
@@ -42,7 +103,12 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
           />
           <div className="textarea">
             Quantity
-            <button onClick={minus} className="lilbtn">
+            <button
+              onClick={minus}
+              className="lilbtn"
+              onMouseDown={checkminustrue}
+              onMouseUp={checkminusfalse}
+            >
               -
             </button>
             <input
@@ -55,7 +121,12 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
               className="bg-transparent text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               required
             />
-            <button onClick={plus} className="lilbtn">
+            <button
+              onClick={plus}
+              className="lilbtn"
+              onMouseDown={checkplustrue}
+              onMouseUp={checkplusfalse}
+            >
               +
             </button>
           </div>
