@@ -6,7 +6,7 @@ import FoodItems from "./FoodItems";
 
 const Supplier = () => {
   return (
-    <div className=" flex h-[90vh] mx-2">
+    <div className=" flex h-[90vh] mx-2  pt-[3.6vw] ">
       <div className="flex-1 ">
         <Foodform />
       </div>
