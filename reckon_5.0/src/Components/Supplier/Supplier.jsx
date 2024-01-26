@@ -5,11 +5,10 @@ import Bar from "./Bargraph";
 import FoodItems from "./FoodItems";
 
 const Supplier = () => {
-  const [Foodlist, setFoodlist] = useState([]);
   return (
     <div className=" flex h-[90vh] mx-2">
       <div className="flex-1 ">
-        <Foodform Foodlist={Foodlist} setFoodlist={setFoodlist} />
+        <Foodform />
       </div>
 
       <div className=" flex-[2] flex-col">
@@ -17,7 +16,7 @@ const Supplier = () => {
           <Bar />
         </div>
         <div className=" h-[48vh]">
-          <FoodItems Foodlist={Foodlist} />
+          <FoodItems />
         </div>
       </div>
     </div>

@@ -1,19 +1,19 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../../App.css";
+import { addFoodItems } from "../../Features/foodSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Foodform = ({ Foodlist, setFoodlist }) => {
+const Foodform = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState("");
   const [checkplus, setCheckPlus] = useState(false);
   const [checkminus, setCheckMinus] = useState(false);
+  const Dispatch = useDispatch();
   function submitted(e) {
     e.preventDefault();
-    setFoodlist([
-      { name: name, quantity: quantity, date: date, id: Date.now() },
-      ...Foodlist,
-    ]);
+    Dispatch(addFoodItems({ name, quantity, date }));
     setName("");
     setQuantity(1);
     setDate("");
@@ -58,7 +58,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
   // checking if plus is true
   useEffect(() => {
     if (checkplus) {
-      console.log(quantity);
+      // console.log(quantity);
       let n = quantity;
       var interval = setInterval(() => {
         if (n < 32) {
@@ -114,7 +114,6 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             <input
               onChange={(e) => setQuantity(e.target.value)}
               value={quantity}
-              placeholder="Quantity"
               type="number"
               min={0}
               max={64}
@@ -135,7 +134,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
             value={date}
             placeholder="Expiry Date (DD/MM/YYYY)"
             className="textarea"
-            type="text"
+            type="date"
             required
           />
         </div>

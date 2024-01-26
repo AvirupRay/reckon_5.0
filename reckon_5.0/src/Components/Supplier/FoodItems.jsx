@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
-const FoodItems = ({ Foodlist }) => {
-  let len = Foodlist.length;
+const FoodItems = () => {
+  const Foodlist = useSelector((state) => state.Foodlist);
+  let len = 1;
   const [foodLength, setFoodLength] = useState(true);
   useEffect(() => {
     if (len != 0) {
