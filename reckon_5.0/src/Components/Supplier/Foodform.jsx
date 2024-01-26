@@ -52,7 +52,7 @@ const Foodform = ({ Foodlist, setFoodlist }) => {
               type="number"
               min={0}
               max={64}
-              className="bg-transparent text-center"
+              className="bg-transparent text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
               required
             />
             <button onClick={plus} className="lilbtn">
