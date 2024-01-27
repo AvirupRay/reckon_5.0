@@ -9,6 +9,8 @@ import Home from "./Components/HomePage/Home.jsx";
 import { Provider } from "react-redux";
 import { store } from "./Apps/store.js";
 import Login from "./Components/Login/Login.jsx";
+import About from "./Components/About/About.jsx";
+import ContactUs from "./Components/ContactUs/ContactUs.jsx";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <Login />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "contactUs",
+        element: <ContactUs />,
       },
     ],
   },
