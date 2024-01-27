@@ -12,7 +12,7 @@ const Supplier = () => {
       </div>
 
       <div className=" flex-[2] flex-col">
-        <div className=" h-[42vh] ">
+        <div className=" h-[42vh] px-[3vw] py-[3vh]">
           <Bar />
         </div>
         <div className=" h-[48vh]">
