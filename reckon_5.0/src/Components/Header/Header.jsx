@@ -84,12 +84,16 @@ const Header = () => {
           >
             <Sun
               className={`scale-0 absolute transition-transform ${
-                darkMode ? " scale-0" : " scale-100"
+                darkMode
+                  ? " scale-0 rotate-90 opacity-50"
+                  : " scale-100 rotate-0 opacity-100"
               }`}
             />
             <Moon
               className={`scale-0 transition-transform ${
-                darkMode ? " scale-100" : " scale-0"
+                darkMode
+                  ? " scale-100 rotate-0 opacity-100"
+                  : " scale-0 rotate-90 opacity-50"
               }`}
             />
           </div>
