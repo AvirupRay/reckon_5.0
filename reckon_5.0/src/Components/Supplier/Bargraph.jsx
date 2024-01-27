@@ -36,7 +36,8 @@ function Bargraph() {
       {
         label: "Product A",
         data: [20, 30, 40, 50, 60, 70],
-        backgroundColor: "rgb(138,165,92)",
+        backgroundColor: gradient,
+        
       },
       {
         label: "Product B",
