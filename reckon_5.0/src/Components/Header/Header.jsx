@@ -10,7 +10,6 @@ const Header = () => {
   const toggleMode = () => {
     Dispatch(changeMode(darkMode));
   };
-  console.log(darkMode);
   useEffect(() => {
     if (darkMode) {
       document.querySelector("html").classList.remove("light");
@@ -94,15 +93,19 @@ const Header = () => {
               }`}
             />
           </div>
-          <div className=" flex items-center justify-evenly bg-[#546e5869]  h-[5.5vh] rounded w-[13vw] shadow-inner backdrop-blur-md gap-0 ml-auto">
+          <div className=" flex items-center justify-evenly bg-transparent rounded w-[13vw]  shadow-inner backdrop-blur-md h-[5.6vh] ml-auto border-[.13rem]">
             <img
-              className="w-[2.2vw] rounded-lg object-cover"
+              className="w-[2.2vw] rounded-lg object-cover select-none "
               src="https://i1.sndcdn.com/avatars-rPurHyYvyLmOUXBc-KLy74A-t240x240.jpg"
               alt="profile"
             />
-            <div className=" flex flex-col h-[5.5vh] text-[.85vw] justify-center items-start ">
-              <p>Name</p>
-              <span>random@gamil.com</span>
+            <div className="  h-[5.3vh] flex items-center select-none ">
+              <div className=" h-[4vh] flex flex-col justify-center">
+                <p className=" text-[.75vw] absolute top-[.3vh]">Name</p>
+                <span className=" opacity-70 text-[.79vw] pt-[1.2vh]">
+                  random@gamil.com
+                </span>
+              </div>
             </div>
           </div>
         </div>
