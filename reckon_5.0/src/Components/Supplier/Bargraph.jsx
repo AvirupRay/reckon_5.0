@@ -19,16 +19,7 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-const option = {
-  responsive: true,
-  plugins: {
-    legend: { position: "chartArea" },
-    title: {
-      display: true,
-      text: "Modular Bar Chart",
-    },
-  },
-};
+
 function Bargraph() {
   const data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -37,13 +28,33 @@ function Bargraph() {
         label: "Product A",
         data: [20, 30, 40, 50, 60, 70],
         backgroundColor: "rgb(138,165,92)",
+        borderRadius: 6,
       },
       {
         label: "Product B",
         data: [15, 20, 25, 40, 45, 60],
         backgroundColor: "rgb(204,226,167)",
+        borderRadius: 6,
       },
     ],
+  };
+
+  const option = {
+    responsive: true,
+    plugins: {
+      legend: { position: "chartArea" },
+      title: {
+        display: true,
+        // text: "Modular Bar Chart",
+      },
+    },
+    scales: {
+      x: {
+        grid: {
+          display: false,
+        },
+      },
+    },
   };
 
   return (
