@@ -1,14 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeMode } from "../../Apps/modeSlice";
 
 const Header = () => {
+  const Dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.mode.darkMode);
+  const toggleMode = () => {
+    Dispatch(changeMode(darkMode));
+  };
+  console.log(darkMode);
+  useEffect(() => {
+    if (darkMode) {
+      document.querySelector("html").classList.remove("light");
+      document.querySelector("html").classList.add("dark");
+    } else {
+      document.querySelector("html").classList.remove("dark");
+      document.querySelector("html").classList.add("light");
+    }
+  }, [darkMode]);
+
   return (
     <div className="  h-[3vw] bg-transparent w-full fixed z-50 ">
-      <div className="[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#8fa88d7c_100%)] backdrop-blur-sm  h-[3vw] mx-2 my-2 rounded-2xl  flex justify-around  shadow-inner">
+      <div className="[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#8fa88d7c_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#5672566b_40%,#8fa88d7c_100%)] backdrop-blur-sm  h-[6.5vh] mx-2 my-2 rounded-2xl  flex gap-[1vw] shadow-inner justify-normal items-center">
+        <NavLink
+          className={() => `
+          h-[6.5vh] px-[2.5vw] py-1 mx-3 text-md rounded-md transition-all flex items-center justify-center border-b-[.3rem] border-transparent font-semibold bg-[#5d7e5d6b] self-center`}
+        >
+          Logo
+        </NavLink>
         <NavLink
           to="/"
           className={({ isActive }) =>
-            ` h-[6.5vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
               isActive
                 ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
                 : " text-[#656663] border-transparent hover:backdrop-blur-sm"
@@ -20,7 +45,7 @@ const Header = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            ` h-[6.5vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
               isActive
                 ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
                 : " text-[#656663] border-transparent hover:backdrop-blur-sm"
@@ -32,7 +57,7 @@ const Header = () => {
         <NavLink
           to="/contactUs"
           className={({ isActive }) =>
-            ` h-[6.5vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
               isActive
                 ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
                 : " text-[#656663] border-transparent hover:backdrop-blur-sm"
@@ -44,7 +69,7 @@ const Header = () => {
         <NavLink
           to="/supplr"
           className={({ isActive }) =>
-            ` h-[6.5vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
               isActive
                 ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
                 : " text-[#656663] border-transparent hover:backdrop-blur-sm"
@@ -53,6 +78,34 @@ const Header = () => {
         >
           Supplier's Page
         </NavLink>
+        <div className="h-[6.2vh] self-center  w-[20vw] ml-auto px-[1vw] mx-[2vw] flex items-center justify-evenly  ">
+          <div
+            className=" bg-[#869e86ad] backdrop-blur-sm p-[.4vw] rounded-md cursor-pointer drop-shadow-md"
+            onClick={toggleMode}
+          >
+            <Sun
+              className={`scale-0 absolute transition-transform ${
+                darkMode ? " scale-0" : " scale-100"
+              }`}
+            />
+            <Moon
+              className={`scale-0 transition-transform ${
+                darkMode ? " scale-100" : " scale-0"
+              }`}
+            />
+          </div>
+          <div className=" flex items-center justify-evenly bg-[#546e5869]  h-[5.5vh] rounded w-[13vw] shadow-inner backdrop-blur-md gap-0 ml-auto">
+            <img
+              className="w-[2.2vw] rounded-lg object-cover"
+              src="https://i1.sndcdn.com/avatars-rPurHyYvyLmOUXBc-KLy74A-t240x240.jpg"
+              alt="profile"
+            />
+            <div className=" flex flex-col h-[5.5vh] text-[.85vw] justify-center items-start ">
+              <p>Name</p>
+              <span>random@gamil.com</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

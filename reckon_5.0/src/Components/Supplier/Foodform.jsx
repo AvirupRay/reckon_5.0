@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../../App.css";
-import { addFoodItems } from "../../Features/foodSlice";
+import { addFoodItems } from "../../Apps/foodSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Foodform = () => {

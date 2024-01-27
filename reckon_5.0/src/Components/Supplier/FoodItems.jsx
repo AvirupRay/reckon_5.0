@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 const FoodItems = () => {
-  const Foodlist = useSelector((state) => state.Foodlist);
+  const Foodlist = useSelector((state) => state.food.Foodlist);
   let len = Foodlist.length;
   const [foodLength, setFoodLength] = useState(true);
   useEffect(() => {
@@ -13,7 +13,7 @@ const FoodItems = () => {
       setFoodLength(true);
     }
   }, [foodLength, len]);
-  //console.log(Foodlist);
+  // console.log(Foodlist);
   return (
     <>
       <div className=" px-10 py-10 h-full ">
