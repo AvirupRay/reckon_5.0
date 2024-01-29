@@ -47,6 +47,7 @@ function Login() {
       id="bgbody"
       className=" flex justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r from-green-100 to-green-300 text-white  relative"
     >
+      {/* Registered Successfully pop up */}
       <div
         className={` absolute bg-[#7a7420] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
           regSucc ? "right-[2vw]" : " right-[-30vw]"
