@@ -105,18 +105,19 @@ function Login() {
           {/* Radio */}
           <div className=" flex items-start justify-start gap-3 text-green-600">
             <div className="flex gap-2">
-              <input type="radio" name="fav_language" value="supplier" />
-              <label>Supplier</label>
+              <input type="radio" id="supplier" name="fav_language" value="supplier" />
+              <label for="supplier">Supplier</label>
               <br />
             </div>
             <div className="flex gap-2">
               <input
                 type="radio"
                 name="fav_language"
+                id="collector"
                 value="collector"
                 className="checked:active:bg-emerald-400 checked:focus:bg-emerald-400"
               />
-              <label>Collector</label>
+              <label for="collector">Collector</label>
               <br />
             </div>
           </div>
