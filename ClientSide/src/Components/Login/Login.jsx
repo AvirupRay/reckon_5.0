@@ -10,7 +10,6 @@ function Login() {
   const [action, setAction] = useState(false);
   const [regSucc, setRegSucc] = useState(false);
 
-  console.log(regSucc);
   //not yet used in form
   const [collector, setcollector] = useState(true);
 
