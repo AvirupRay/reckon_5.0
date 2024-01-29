@@ -11,6 +11,7 @@ import { store } from "./Apps/store.js";
 import Login from "./Components/Login/Login.jsx";
 import About from "./Components/About/About.jsx";
 import ContactUs from "./Components/ContactUs/ContactUs.jsx";
+import Collector from "./Components/Collector/Collector.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "supplr",
         element: <Supplier />,
+      },
+      {
+        path: "collector",
+        element: <Collector />,
       },
       {
         path: "login",
