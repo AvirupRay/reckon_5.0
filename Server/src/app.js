@@ -8,8 +8,6 @@ app.use(cors());
 
 app.use(express.json());
 
-export { app };
-
 //testing User Info
 
 app.post("/userinfo", async (req, res) => {
@@ -36,3 +34,22 @@ app.post("/userinfo", async (req, res) => {
     res.status(500).send({ message: error.message });
   }
 });
+
+//finding data by id from db
+app.get("/userinfo/login/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await UserDetails.findById(id);
+    return res.status(200).json(user);
+  } catch (error) {
+    console.error("User Finding Issue!!", error.message);
+  }
+});
+
+// //routes import
+// import userRouter from "./routes/user.routes.js";
+
+// //routes declaration
+// app.use("/api/v1/users", userRouter);
+
+export { app };
