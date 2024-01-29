@@ -45,7 +45,7 @@ function Login() {
   return (
     <div
       id="bgbody"
-      className=" flex justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r from-green-100 to-green-300 text-white  relative"
+      className=" flex justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r bg-[#fffde8] dark:bg-[#1f1f1f] transition-colors text-white  relative"
     >
       {/* Registered Successfully pop up */}
       <div
@@ -59,7 +59,7 @@ function Login() {
       {/* box */}
       <div
         id="outerBox"
-        className=" bg-[rgba(0,0,0)] h-[65vh] w-[55vw] flex justify-evenly items-center mt-0.5 gap-5 shadow-xl shadow-green-950 rounded-3xl "
+        className=" bg-[rgba(0,0,0)] h-[65vh] w-[55vw] flex justify-evenly items-center mt-0.5 gap-5 shadow-xl shadow-green-950 rounded-3xl dark:shadow-[#344237] "
       >
         <form
           onSubmit={handleSubmit}
@@ -103,10 +103,17 @@ function Login() {
           />
 
           {/* Radio */}
-          <div className=" flex items-start justify-start gap-3 text-green-600">
+          <div className=" flex items-start justify-start gap-3 text-green-600 cursor-pointer">
             <div className="flex gap-2">
-              <input type="radio" id="supplier" name="fav_language" value="supplier" />
-              <label for="supplier">Supplier</label>
+              <input
+                type="radio"
+                id="supplier"
+                name="fav_language"
+                value="supplier"
+              />
+              <label htmlFor="supplier" className=" cursor-pointer">
+                Supplier
+              </label>
               <br />
             </div>
             <div className="flex gap-2">
@@ -115,9 +122,11 @@ function Login() {
                 name="fav_language"
                 id="collector"
                 value="collector"
-                className="checked:active:bg-emerald-400 checked:focus:bg-emerald-400"
+                className="checked:active:bg-emerald-400 checked:focus:bg-emerald-400 cursor-pointer "
               />
-              <label for="collector">Collector</label>
+              <label htmlFor="collector" className=" cursor-pointer">
+                Collector
+              </label>
               <br />
             </div>
           </div>
