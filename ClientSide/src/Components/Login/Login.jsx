@@ -1,14 +1,30 @@
 import React, { useState } from "react";
 import gsap from "gsap";
 import "../../App.css";
+import axios from "axios";
 
 function Login() {
-  const [uname, setUname] = useState("");
-  const [pass, setPass] = useState("");
+  const [username, setUname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
   const [action, setAction] = useState(false);
+  const [regSucc, setRegSucc] = useState(false);
+
+  console.log(regSucc);
+  //not yet used in form
+  const [collector, setcollector] = useState(true);
 
   function handleSubmit(e) {
     e.preventDefault();
+    const userinfo = { username, email, password, collector };
+    axios
+      .post("http://localhost:3000/userinfo", userinfo)
+      .then(() => {
+        regPopUp();
+      })
+      .catch((error) => {
+        console.log("Axios Side Error", error);
+      });
   }
 
   function changer() {
@@ -17,11 +33,29 @@ function Login() {
     } else setAction(false);
   }
 
+  const regPopUp = () => {
+    setRegSucc(true);
+    setUname("");
+    setEmail("");
+    setPass("");
+    setTimeout(() => {
+      setRegSucc(false);
+    }, 2000);
+  };
+
   return (
     <div
       id="bgbody"
-      className=" flex justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r from-green-950 to-green-800 text-white"
+      className=" flex justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r from-green-100 to-green-300 text-white  relative"
     >
+      <div
+        className={` absolute bg-[#7a7420] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
+          regSucc ? "right-[2vw]" : " right-[-30vw]"
+        }`}
+      >
+        Registered Sucessfully!
+      </div>
+
       {/* box */}
       <div
         id="outerBox"
@@ -29,7 +63,9 @@ function Login() {
       >
         <form
           onSubmit={handleSubmit}
-          className={`flex justify-center items-center flex-col h-[100%] w-[100%] gap-2 ${action?"":"order-last"}`}
+          className={`flex justify-center items-center flex-col h-[100%] w-[100%] gap-2 ${
+            action ? "" : "order-last"
+          }`}
         >
           {/* heading */}
           <h1 className="  font-serif text-left text-5xl">
@@ -42,16 +78,18 @@ function Login() {
             onChange={(e) => setUname(e.target.value)}
             placeholder="username"
             className=" bg-transparent w-[60%] rounded-md p-3 border-0 border-b-2 border-green-800 shadow hover:shadow-green-500/50 focus:outline-none"
-            value={uname}
+            value={username}
             required
           />
           {/* email */}
           <input
             type={"text"}
-            onChange={(e) => setUname(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="email"
-            className={`bg-transparent w-[60%] rounded-md p-3 border-0 border-b-2 border-green-800 shadow hover:shadow-green-500/50 focus:outline-none ${action ? "" : "hidden"}`}
-            value={uname}
+            className={`bg-transparent w-[60%] rounded-md p-3 border-0 border-b-2 border-green-800 shadow hover:shadow-green-500/50 focus:outline-none ${
+              action ? "" : "hidden"
+            }`}
+            value={email}
             required
           />
           {/* password */}
@@ -60,7 +98,7 @@ function Login() {
             onChange={(e) => setPass(e.target.value)}
             placeholder="password"
             className="bg-transparent w-[60%] rounded-md p-3 border-0 border-b-2 border-green-800 shadow hover:shadow-green-500/50 focus:outline-none"
-            value={pass}
+            value={password}
             required
           />
 
@@ -93,7 +131,13 @@ function Login() {
         </form>
 
         {/* side bar */}
-        <div className={` bg-[url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D')] bg-no-repeat h-[100%] w-[100%]  flex justify-evenly items-center flex-col ${action?"rounded-r-3xl rounded-l-[20%]":"rounded-l-3xl rounded-r-[20%]"}  bg-cover p-2`}>
+        <div
+          className={` bg-[url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D')] bg-no-repeat h-[100%] w-[100%]  flex justify-evenly items-center flex-col ${
+            action
+              ? "rounded-r-3xl rounded-l-[20%]"
+              : "rounded-l-3xl rounded-r-[20%]"
+          }  bg-cover p-2`}
+        >
           <h1 className=" font-bold text-3xl font-serif m-5  text-white">
             {action ? "Hello, User" : "Welcome back"}
           </h1>

@@ -35,13 +35,15 @@ const FoodItems = () => {
               TODAY
             </div>
           </div>
-          {foodLength ? (
-            <span className=" bg-slate-100 px-4 py-3 absolute top-[50%] left-[50%] [transform:translate(-50%,-50%)] rounded-md font-semibold shadow text-[#3a3838] transition-all">
-              Add Some Items....
-            </span>
-          ) : (
-            <span></span>
-          )}
+
+          <span
+            className={` px-4 py-3 absolute bg-slate-50 left-[50%] [transform:translate(-50%,-50%)] rounded-md font-semibold shadow text-[#3a3838] transition-all ${
+              foodLength ? " top-[50%]" : "top-[55%] scale-70 opacity-0 "
+            }`}
+          >
+            Add Some Items....
+          </span>
+
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
             {Foodlist.map((dish) => (
               <li

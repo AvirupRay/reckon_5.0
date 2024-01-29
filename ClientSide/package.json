@@ -12,6 +12,7 @@
   "dependencies": {
     "-": "^0.0.1",
     "@reduxjs/toolkit": "^2.1.0",
+    "axios": "^1.6.7",
     "chart.js": "^4.4.1",
     "gsap": "^3.12.5",
     "lucide-react": "^0.316.0",
