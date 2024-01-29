@@ -17,7 +17,7 @@ const FoodItems = () => {
   return (
     <>
       <div className=" px-10 py-10 h-full ">
-        <div className=" [background:radial-gradient(125%_125%_at_50%_10%,#e0ebbe_40%,#b9d1ae_100%)] inset-0 px-9 pt-9 rounded-lg h-full relative  shadow-inner backdrop-blur">
+        <div className=" [background:radial-gradient(125%_125%_at_50%_10%,#e0ebbe_40%,#b9d1ae_100%)]   inset-0 px-9 pt-9 rounded-lg h-full relative  shadow-inner backdrop-blur">
           <div className=" absolute top-[-10%] left-[3%] bg-[#6A7A50] text-white px-[2vw] py-[1vw] rounded-md text-l font-semibold  drop-shadow-md ">
             ALL ITEMS
           </div>
