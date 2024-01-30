@@ -18,7 +18,7 @@ const Collector = () => {
                 Cards
               </div>
             </div>
-            <button className=" absolute bottom-[1.5vh] right-[3.5vw] bg-[#6b8b32] px-[2vw] py-[.8vh] rounded-md text-white font-medium">
+            <button className=" absolute bottom-[1.5vh] right-[3.5vw] bg-[#6b8b32] px-[2vw] py-[.8vh] rounded-md text-white font-medium border-4 border-[#6d804c]">
               Checkout
             </button>
           </div>
