@@ -9,7 +9,9 @@ const FoodItems = () => {
 
   const [foodlist, setFoodlist] = useState([]);
   const [refresh, setRefresh] = useState(0);
-  let len = 0;
+  const [style, setStyle] = useState(
+    "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+  );
 
   useEffect(() => {
     axios
@@ -20,6 +22,15 @@ const FoodItems = () => {
   console.log(foodlist.length);
 
   function refreshfunc() {
+    setStyle(
+      "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit rotate-[360deg] transition-transform duration-700 scale-90"
+    );
+    setTimeout(() => {
+      setStyle(
+        "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+      );
+    }, 700);
+
     refresh == 0 ? setRefresh(1) : setRefresh(0);
   }
 
@@ -41,10 +52,8 @@ const FoodItems = () => {
           <div className=" absolute top-[-10%] left-[3%] bg-[#6A7A50] text-white px-[2vw] py-[1vw] rounded-md text-l font-semibold  drop-shadow-md ">
             ALL ITEMS
           </div>
-          <button
-            className="absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit active:rotate-180 active:transition-transform active:duration-200 active:scale-90"
-            onClick={refreshfunc}
-          >
+          {/* active:rotate-180 active:transition-transform active:duration-200active:scale-90 */}
+          <button className={style} onClick={refreshfunc} id="refr">
             <RefreshCw size={15} />
           </button>
           <div className=" absolute top-[-10%] right-[3%] bg-[#8AA55C] text-white px-[2vw] py-[.5vw] rounded-md text-l font-semibold flex w-3/5 justify-evenly items-center  drop-shadow-md">
@@ -61,7 +70,6 @@ const FoodItems = () => {
               TODAY
             </div>
           </div>
-
           <span
             className={` px-4 py-3 absolute bg-slate-50 left-[50%] [transform:translate(-50%,-50%)] rounded-md font-semibold shadow text-[#3a3838] transition-all ${
               foodlist.length == 0
@@ -71,7 +79,6 @@ const FoodItems = () => {
           >
             Add Some Items....
           </span>
-
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
             {foodlist.map((dish) => (
               <li
