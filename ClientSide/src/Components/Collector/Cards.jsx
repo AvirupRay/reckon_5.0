@@ -31,16 +31,16 @@ function Cards() {
         </div>
         {/* description */}
         <div
-          className={`bg-[#CCE4A2] h-[14vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative ${
-            des ? "" : "hidden"
+          className={`bg-[#CCE4A2] h-[0vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative transition-transform ${
+            des ? "h-[15vh]" : " "
           } overflow-y-scroll scrollbar-hide  scroll-smooth`}
         >
           {/* todo */}
-          <div className=" font-bold font-mono text-xl">
-            company name
-          </div>
+          <div className=" font-bold font-mono text-xl">company name</div>
           <div className=" bg-white p-2 rounded-xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas rerum necessitatibus natus, beatae incidunt tenetur libero unde quae est facilis.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
+            rerum necessitatibus natus, beatae incidunt tenetur libero unde quae
+            est facilis.
           </div>
         </div>
       </div>
