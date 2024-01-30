@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "../../App.css";
 import axios from "axios";
 
 function Login() {
+  const comp = useRef(null);
+
+  const box1Ref = useRef(null);
+  const box2Ref = useRef(null);
+
   const [username, setUname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -29,9 +34,16 @@ function Login() {
   function changer() {
     if (action == false) {
       setAction(true);
-    } else setAction(false);
-  }
+      gsap.to(box1Ref.current, { xPercent: 103.5, duration: 0.3});
+      gsap.to(box2Ref.current, { xPercent: -103.5, duration: 0.3 });
 
+    } else {
+      setAction(false);
+      gsap.to(box1Ref.current, { xPercent: 0, duration: 0.3 });
+      gsap.to(box2Ref.current, { xPercent: 0, duration: 0.3});
+    }
+  }
+  // for successfull pop up
   const regPopUp = () => {
     setRegSucc(true);
     setUname("");
@@ -41,6 +53,7 @@ function Login() {
       setRegSucc(false);
     }, 2000);
   };
+
 
   return (
     <div
@@ -59,13 +72,14 @@ function Login() {
       {/* box */}
       <div
         id="outerBox"
-        className=" bg-[rgba(0,0,0)] h-[65vh] w-[55vw] flex justify-evenly items-center mt-0.5 gap-5 shadow-xl shadow-green-950 rounded-3xl dark:shadow-[#344237] "
+        className=" bg-[rgba(0,0,0)] h-[65vh] w-[55vw] flex justify-evenly items-center mt-0.5 gap-5 shadow-xl shadow-green-950 rounded-3xl dark:shadow-[#344237]"
+        ref={comp}
       >
         <form
+          id="form"
+          ref={box1Ref}
           onSubmit={handleSubmit}
-          className={`flex justify-center items-center flex-col h-[100%] w-[100%] gap-2 ${
-            action ? "" : "order-last"
-          }`}
+          className={`flex justify-center items-center flex-col h-[100%] w-[100%] gap-2`}
         >
           {/* heading */}
           <h1 className="  font-serif text-left text-5xl">
@@ -142,13 +156,15 @@ function Login() {
 
         {/* side bar */}
         <div
+          id="bar"
+          ref={box2Ref}
           className={` bg-[url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D')] bg-no-repeat h-[100%] w-[100%]  flex justify-evenly items-center flex-col ${
             action
-              ? "rounded-r-3xl rounded-l-[20%]"
-              : "rounded-l-3xl rounded-r-[20%]"
+              ? "rounded-l-3xl rounded-r-[20%]"
+              : "rounded-r-3xl rounded-l-[20%]"
           }  bg-cover p-2`}
         >
-          <h1 className=" font-bold text-3xl font-serif m-5  text-white">
+          <h1 className=" font-bold text-3xl font-serif   text-white">
             {action ? "Hello, User" : "Welcome back"}
           </h1>
           {/* <p className=" text-center w-80 text-xl  text-black">
