@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const Home = () => {
-  return <div>its a home page</div>;
-};
+function Home() {
+  return (
+    <div>helooooo</div>
+  )
+}
 
-export default Home;
+export default Home

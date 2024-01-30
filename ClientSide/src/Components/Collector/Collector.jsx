@@ -1,4 +1,5 @@
 import React from "react";
+import Cards from "./Cards";
 
 const Collector = () => {
   return (
@@ -33,10 +34,13 @@ const Collector = () => {
                 CONSUMABLE
               </div>
             </div>
-            <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col">
-              <div className=" bg-yellow-200 h-[10vh] my-2 py-4 px-[2vw]">
-                Cards
-              </div>
+            <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col items-center gap-4">
+              {/* cards */}
+              <Cards />
+              <Cards />
+              <Cards />
+              <Cards />
+              <Cards />
             </div>
           </div>
         </div>
