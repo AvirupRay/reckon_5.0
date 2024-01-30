@@ -1,10 +1,17 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 const FoodItems = () => {
-  const Foodlist = useSelector((state) => state.food.Foodlist);
-  let len = Foodlist.length;
+  //const Foodlist = useSelector((state) => state.food.Foodlist);
+
+  const [foodlist, setFoodlist] = useState([]);
+  axios
+    .get("http://localhost:3000/foods")
+    .then((response) => setFoodlist(response.data))
+    .catch((error) => console.error(error));
+  let len = foodlist.length;
   const [foodLength, setFoodLength] = useState(true);
   useEffect(() => {
     if (len != 0) {
@@ -45,7 +52,7 @@ const FoodItems = () => {
           </span>
 
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
-            {Foodlist.map((dish) => (
+            {foodlist.map((dish) => (
               <li
                 className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-around drop-shadow"
                 key={dish.id}
