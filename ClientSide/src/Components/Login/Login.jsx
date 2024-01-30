@@ -20,15 +20,27 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    const userinfo = { username, email, password, collector };
-    axios
-      .post("http://localhost:3000/userinfo", userinfo)
-      .then(() => {
-        regPopUp();
-      })
-      .catch((error) => {
-        console.log("Axios Side Error", error);
-      });
+    if (action) {
+      const userinfo = { username, email, password, collector };
+      axios
+        .post("http://localhost:3000/userinfo", userinfo)
+        .then(() => {
+          regPopUp();
+        })
+        .catch((error) => {
+          console.log("Axios Side Error", error);
+        });
+    } else {
+      // const userLogin = { username, password };
+      axios
+        .get(`http://localhost:3000/userinfo/login/${username}`)
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log("Axios Side Error!!", err);
+        });
+    }
   }
 
   function changer() {
@@ -94,15 +106,16 @@ function Login() {
             required
           />
           {/* email */}
+
           <input
-            type={"text"}
+            type="text"
             onChange={(e) => setEmail(e.target.value)}
             placeholder="email"
             className={`bg-transparent w-[60%] rounded-md p-3 border-0 border-b-2 border-green-800 shadow hover:shadow-green-500/50 focus:outline-none ${
               action ? "" : "hidden"
             }`}
             value={email}
-            required
+            required={action}
           />
           {/* password */}
           <input
