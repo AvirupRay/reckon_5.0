@@ -63,6 +63,7 @@ app.post("/foods", async (req, res) => {
       name: req.body.name,
       quantity: req.body.quantity,
       date: req.body.date,
+      stock: req.body.stock,
     };
 
     const food = await allfoods.create(newfood);
@@ -70,6 +71,18 @@ app.post("/foods", async (req, res) => {
   } catch (error) {
     console.log(error.message);
     res.status(500).send({ message: error.message });
+  }
+});
+
+//getting foods from DB
+app.get("/foods", async (req, res) => {
+  try {
+    const foods = await allfoods.find({});
+    console.log("DB.find() Called");
+    res.json(foods);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
   }
 });
 

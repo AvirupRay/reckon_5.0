@@ -11,18 +11,19 @@ const Foodform = () => {
   const [date, setDate] = useState("");
   const [checkplus, setCheckPlus] = useState(false);
   const [checkminus, setCheckMinus] = useState(false);
-  const [status, setStatus] = useState(false);
+  const [stock, setStock] = useState(true);
   const Dispatch = useDispatch();
 
   //to submit the form
   function submitted(e) {
     e.preventDefault();
-    Dispatch(addFoodItems({ name, quantity, date, status }));
+    //Dispatch(addFoodItems({ name, quantity, date, status }));
 
     const foods = {
       name,
       quantity,
       date,
+      stock,
     };
 
     axios

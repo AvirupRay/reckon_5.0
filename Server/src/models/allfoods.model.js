@@ -13,6 +13,9 @@ const foodschema = new Schema({
     type: Date,
     required: true,
   },
+  stock: {
+    type: Boolean,
+  },
 });
 
 export const allfoods = mongoose.model("allfoods", foodschema);
