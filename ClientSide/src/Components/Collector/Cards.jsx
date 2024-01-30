@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import gsap from "gsap";
 import { IoIosArrowDropdownCircle, IoIosArrowDropup } from "react-icons/io";
-
 function Cards() {
+  const box = useRef(null);
   const [des, setDes] = useState(false);
   function handleClick() {}
 
   function more() {
-    des ? setDes(false) : setDes(true);
+    if (des == true) {
+      setDes(false);
+      gsap.to(box.current, {height:'0vh', duration: 0.3 });
+    } else {
+      setDes(true);
+      gsap.to(box.current, {height:'15vh', duration: 0.3 });  
+    }
   }
   return (
     <>
@@ -31,9 +38,7 @@ function Cards() {
         </div>
         {/* description */}
         <div
-          className={`bg-[#CCE4A2] h-[0vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative transition-transform ${
-            des ? "h-[15vh]" : " "
-          } overflow-y-scroll scrollbar-hide  scroll-smooth`}
+          className="bg-[#CCE4A2] h-[0vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative transition-transform overflow-y-scroll scrollbar-hide scroll-smooth" ref={box}
         >
           {/* todo */}
           <div className=" font-bold font-mono text-xl">company name</div>
