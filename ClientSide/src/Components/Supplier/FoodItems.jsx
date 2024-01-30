@@ -23,13 +23,13 @@ const FoodItems = ({ foodlistReload }) => {
 
   function refreshfunc() {
     setStyle(
-      "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit rotate-[360deg] transition-transform duration-700 scale-90"
+      "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit rotate-[360deg] transition-transform duration-500 scale-90"
     );
     setTimeout(() => {
       setStyle(
         "absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
       );
-    }, 700);
+    }, 500);
 
     refresh == 0 ? setRefresh(1) : setRefresh(0);
   }
