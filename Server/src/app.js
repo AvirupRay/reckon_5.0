@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use(express.json());
 
-//testing User Info
+//Registering User Info
 
 app.post("/userinfo", async (req, res) => {
   try {
@@ -37,11 +37,11 @@ app.post("/userinfo", async (req, res) => {
 });
 
 //finding data by id from db
-app.get("/userinfo/login/:id", async (req, res) => {
+app.get("/userinfo/login/:username", async (req, res) => {
   try {
-    const { id } = req.params;
-    const user = await UserDetails.findById(id);
-    return res.status(200).json(user);
+    const usernameIn = req.params.username;
+    const user = await UserDetails.findOne({ username: usernameIn });
+    return res.status(200).json({ user, usernameIn });
   } catch (error) {
     console.error("User Finding Issue!!", error.message);
   }

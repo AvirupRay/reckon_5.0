@@ -5,7 +5,7 @@ import { addFoodItems } from "../../Apps/foodSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 
-const Foodform = () => {
+const Foodform = ({ foodlistReload, setFoodlistReload }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState("");
@@ -29,7 +29,8 @@ const Foodform = () => {
     axios
       .post("http://localhost:3000/foods", foods)
       .then(() => {
-        console.log("Added");
+        setFoodlistReload(foodlistReload + 1);
+        console.log("listreload:", foodlistReload);
         setName("");
         setQuantity(1);
         setDate("");
