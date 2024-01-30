@@ -34,13 +34,12 @@ function Login() {
   function changer() {
     if (action == false) {
       setAction(true);
-      gsap.to(box1Ref.current, { xPercent: 103.5, duration: 0.3});
+      gsap.to(box1Ref.current, { xPercent: 103.5, duration: 0.3 });
       gsap.to(box2Ref.current, { xPercent: -103.5, duration: 0.3 });
-
     } else {
       setAction(false);
       gsap.to(box1Ref.current, { xPercent: 0, duration: 0.3 });
-      gsap.to(box2Ref.current, { xPercent: 0, duration: 0.3});
+      gsap.to(box2Ref.current, { xPercent: 0, duration: 0.3 });
     }
   }
   // for successfull pop up
@@ -53,7 +52,6 @@ function Login() {
       setRegSucc(false);
     }, 2000);
   };
-
 
   return (
     <div

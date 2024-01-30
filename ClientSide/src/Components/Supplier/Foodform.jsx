@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import "../../App.css";
 import { addFoodItems } from "../../Apps/foodSlice";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const Foodform = () => {
   const [name, setName] = useState("");
@@ -17,9 +18,24 @@ const Foodform = () => {
   function submitted(e) {
     e.preventDefault();
     Dispatch(addFoodItems({ name, quantity, date, status }));
-    setName("");
-    setQuantity(1);
-    setDate("");
+
+    const foods = {
+      name,
+      quantity,
+      date,
+    };
+
+    axios
+      .post("http://localhost:3000/foods", foods)
+      .then(() => {
+        console.log("Added");
+        setName("");
+        setQuantity(1);
+        setDate("");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   //to minus the quantity

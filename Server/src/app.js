@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { UserDetails } from "./models/userDetails.model.js";
+import { allfoods } from "./models/allfoods.model.js";
 
 const app = express();
 
@@ -51,5 +52,25 @@ app.get("/userinfo/login/:id", async (req, res) => {
 
 // //routes declaration
 // app.use("/api/v1/users", userRouter);
+
+//posting the foods from supplier page to DB
+app.post("/foods", async (req, res) => {
+  try {
+    if ((!req.body.name, !req.body.quantity, !req.body.date)) {
+      return res.status(400).send({ message: "send all required fields" });
+    }
+    const newfood = {
+      name: req.body.name,
+      quantity: req.body.quantity,
+      date: req.body.date,
+    };
+
+    const food = await allfoods.create(newfood);
+    return res.status(201).send(food);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
+  }
+});
 
 export { app };
