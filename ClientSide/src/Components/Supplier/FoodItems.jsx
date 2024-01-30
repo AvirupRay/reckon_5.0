@@ -42,7 +42,7 @@ const FoodItems = () => {
             ALL ITEMS
           </div>
           <button
-            className="absolute top-[-5%] left-[20%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit"
+            className="absolute top-[-5%] left-[22%] bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit active:rotate-180 active:transition-transform active:duration-200 active:scale-90"
             onClick={refreshfunc}
           >
             <RefreshCw size={15} />
