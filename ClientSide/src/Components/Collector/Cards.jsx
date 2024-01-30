@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IoIosArrowDropdownCircle,IoIosArrowDropup } from "react-icons/io";
+import { IoIosArrowDropdownCircle, IoIosArrowDropup } from "react-icons/io";
 
 function Cards() {
   const [des, setDes] = useState(false);
@@ -13,7 +13,7 @@ function Cards() {
       <div className=" flex flex-col items-center justify-center">
         <div
           id="main"
-          className=" bg-[#D9D9D9] h-[10vh] w-[90vw] py-4 px-[2vw] flex justify-evenly items-center rounded-md"
+          className=" bg-[#D9D9D9] h-[10vh] w-[90vw] py-4 px-[2vw] flex justify-evenly items-center rounded-md shadow-2xl"
         >
           <div>FoodName</div>
           <div>Quantity</div>
@@ -26,19 +26,22 @@ function Cards() {
             Add
           </button>
           <button onClick={more} className="text-3xl">
-            {des?<IoIosArrowDropup/>:<IoIosArrowDropdownCircle/>}
+            {des ? <IoIosArrowDropup /> : <IoIosArrowDropdownCircle />}
           </button>
         </div>
         {/* description */}
         <div
-          className={`bg-[#CCE4A2] h-[10vh] w-[88vw] py-4 px-[2vw] rounded-b-xl relative ${
+          className={`bg-[#CCE4A2] h-[14vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative ${
             des ? "" : "hidden"
-          } `}
+          } overflow-y-scroll scrollbar-hide  scroll-smooth`}
         >
-            <div>
-                <div></div>
-            </div>
-          
+          {/* todo */}
+          <div className=" font-bold font-mono text-xl">
+            company name
+          </div>
+          <div className=" bg-white p-2 rounded-xl">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas rerum necessitatibus natus, beatae incidunt tenetur libero unde quae est facilis.
+          </div>
         </div>
       </div>
     </>
