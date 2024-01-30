@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { RefreshCw } from "lucide-react";
 
-const FoodItems = () => {
+const FoodItems = ({ foodlistReload }) => {
   //const Foodlist = useSelector((state) => state.food.Foodlist);
 
   const [foodlist, setFoodlist] = useState([]);
@@ -16,7 +16,7 @@ const FoodItems = () => {
       .get("http://localhost:3000/foods")
       .then((response) => setFoodlist(response.data))
       .catch((error) => console.error(error));
-  }, [refresh]);
+  }, [refresh, foodlistReload]);
   console.log(foodlist.length);
 
   function refreshfunc() {
