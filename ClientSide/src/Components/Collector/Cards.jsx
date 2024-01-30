@@ -13,7 +13,7 @@ function Cards() {
       <div className=" flex flex-col items-center justify-center">
         <div
           id="main"
-          className=" bg-[#D9D9D9] h-[10vh] w-[90vw] py-4 px-[2vw] flex justify-evenly items-center rounded-md shadow-2xl"
+          className=" bg-[#D9D9D9] h-[10vh] w-[90vw] py-4 px-[2vw] flex justify-evenly items-center rounded-md shadow-lg"
         >
           <div>FoodName</div>
           <div>Quantity</div>

@@ -37,6 +37,7 @@ const Collector = () => {
             <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col items-center gap-4">
               {/* cards */}
               <Cards />
+              <Cards />
             </div>
           </div>
         </div>
