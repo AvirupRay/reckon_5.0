@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import avirup from "../../Pictures/AllProfilePic/avirup_image.jpg";
 import roushan from "../../Pictures/AllProfilePic/roushan_image.jpg";
 import sahil from "../../Pictures/AllProfilePic/sahil_image.png";
 import sambit from "../../Pictures/AllProfilePic/sambit_image.jpg";
+import gsap from "gsap";
 
 const About = () => {
+  const comp = useRef(null);
+
+  useLayoutEffect(() => {
+    let ctx = gsap.context(() => {
+      const t1 = gsap.timeline();
+      t1.to("#one", {
+        yPercent: "-800",
+        duration: 2,
+        delay: 3,
+      }).from("#two", {
+        yPercent: "200",
+        duration: 0.3,
+        delay: 0.2,
+      });
+    }, comp);
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div
+      ref={comp}
       className="  h-[100vh] pt-[10vh] overflow-y-scroll scrollbar-hide [background:radial-gradient(125%_125%_at_50%_10%,#fffde8_40%,#fffde810_90%)]
     "
     >
@@ -27,10 +47,16 @@ const About = () => {
           </span>
         </div>
         <div className=" absolute right-[0%] top-[50%] [transform:translate(-50%,-50%)] flex bg-[#4f63443f] w-[30vw] h-[15vh] px-[2vw] py-[2vh] text-[3.5vw] overflow-hidden">
-          <div className=" absolute top-[50%] left-[50%] [transform:translate(-50%,-500%)] whitespace-nowrap">
+          <div
+            className=" absolute top-[50%] left-[50%] [transform:translate(-50%,-50%)] whitespace-nowrap"
+            id="one"
+          >
             Robin Food
           </div>
-          <div className=" text-[1.8vw] absolute top-[50%] left-[50%] [transform:translate(-50%,-50%)] whitespace-nowrap">
+          <div
+            className=" text-[1.8vw] absolute top-[50%] left-[50%] [transform:translate(-50%,-50%)] whitespace-nowrap"
+            id="two"
+          >
             Minimize Waste, Maximize Taste
           </div>
         </div>
