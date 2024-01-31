@@ -6,8 +6,10 @@ import { changeMode } from "../../Apps/modeSlice";
 import RobinFoodLogo from "../../Pictures/RobinFoodLogo.png";
 
 const Header = () => {
+  const userType = useSelector((state) => state.userType.userTypeNow);
   const Dispatch = useDispatch();
   const darkMode = useSelector((state) => state.mode.darkMode);
+  // console.log(userType);
   const toggleMode = () => {
     Dispatch(changeMode(darkMode));
   };
@@ -66,30 +68,38 @@ const Header = () => {
         >
           Contact Us
         </NavLink>
-        <NavLink
-          to="/supplr"
-          className={({ isActive }) =>
-            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
-              isActive
-                ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
-                : " text-[#656663] border-transparent hover:backdrop-blur-sm"
-            }`
-          }
-        >
-          Supplier's Page
-        </NavLink>
-        <NavLink
-          to="/collector"
-          className={({ isActive }) =>
-            ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
-              isActive
-                ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
-                : " text-[#656663] border-transparent hover:backdrop-blur-sm"
-            }`
-          }
-        >
-          Collector's Page
-        </NavLink>
+        {userType == "supplier" && userType != "" ? (
+          <NavLink
+            to="/supplier"
+            className={({ isActive }) =>
+              ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+                isActive
+                  ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
+                  : " text-[#656663] border-transparent hover:backdrop-blur-sm"
+              }`
+            }
+          >
+            Supplier's Page
+          </NavLink>
+        ) : (
+          <></>
+        )}
+        {userType == "collector" && userType != "" ? (
+          <NavLink
+            to="/collector"
+            className={({ isActive }) =>
+              ` h-[6.8vh] px-[2vw] py-1 text-md rounded-sm transition-all flex items-center justify-center border-b-[.3rem] border-[#5d795d] font-semibold  ${
+                isActive
+                  ? "  [background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#2766338e_100%)] text-[#1c4423] hover:[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#183a1e8e_100%)] shadow-lg"
+                  : " text-[#656663] border-transparent hover:backdrop-blur-sm"
+              }`
+            }
+          >
+            Collector's Page
+          </NavLink>
+        ) : (
+          <></>
+        )}
         <div className="h-[6.2vh] self-center  w-[20vw] ml-auto px-[1vw] mx-[2vw] flex items-center justify-evenly  ">
           <div
             className=" bg-[#869e86ad] backdrop-blur-sm p-[.4vw] rounded-md cursor-pointer drop-shadow-md"
