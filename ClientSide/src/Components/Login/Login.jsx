@@ -77,6 +77,7 @@ function Login() {
   }
   // for successfully registering  pop up
   const regPopUp = () => {
+    dispatch(setUserType(collector));
     setRegSucc(true);
     setUname("");
     setEmail("");
