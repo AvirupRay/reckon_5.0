@@ -126,7 +126,7 @@ function Home() {
           {/* page 2 */}
           <div
             id="page2"
-            className="h-[100vh] w-[100vw] flex flex-col justify-center items-center"
+            className="h-[100vh] w-[100vw] flex flex-col justify-center items-center mt-16"
           >
             <div className="flex flex-row items-start justify-center mt-80 z-40">
               <div className="w-40 flex flex-col items-center justify-center text-center">
@@ -197,12 +197,12 @@ function Home() {
 
           {/* third page */}
 
-          <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center">
+          <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center mt-[30vh] ">
             <h1 className=" text-5xl m-5 font-bold mt-40">
               People's thought...
             </h1>
-            <div className=" flex gap-20 flex-wrap justify-center items-center bg-[#a4d687] h-[60vh] p-10 rounded-3xl overflow-hidden">
-              <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
+            <div className=" flex gap-20 flex-wrap justify-center items-center bg-[#a4d687] h-[100vh] p-10 rounded-3xl overflow-hidden mt-4 pb-4">
+              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://i1.sndcdn.com/avatars-9a6uo7vosAFKkz3f-3YjIWw-t500x500.jpg"
@@ -219,7 +219,7 @@ function Home() {
                 </p>
               </div>
 
-              <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
+              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://avirupray.github.io/dabbawala/images/reviewers/p4.jpg"
@@ -235,7 +235,7 @@ function Home() {
                 </p>
               </div>
 
-              <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
+              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://avirupray.github.io/dabbawala/images/reviewers/p3.jpg"
