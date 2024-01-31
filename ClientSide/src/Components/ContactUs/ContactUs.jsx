@@ -23,61 +23,73 @@ const ContactUs = () => {
 
   return (
     <>
-      <div className="  flex  justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r bg-[#fffde8]">
-        <div className=" bg-black flex flex-col justify-center items-center p-10 gap-3 w-3/5 h-auto text-white rounded-2xl">
-          <h2 className=" text-5xl font-serif mb-10 text-green-600 font-bold">
-            Contact Us
-          </h2>
+      {/* We've been waiting for you. */}
+      <div className="  flex flex-col justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r bg-[#fffde8] pt-[10vh]">
+        <div className=" h-[15vh] w-full flex flex-col justify-center items-center">
+          <span className=" text-[2.5vw] text-center font-medium">
+            We've been waiting <br />
+            for your feedback.
+          </span>
+          <span className=" text-[.9vw] text-[#2c2c2c]">
+            Let us what can we improve
+          </span>
+        </div>
+        <div className="  h-[70vh] w-full px-[2vw] py-[2vh] flex items-center relative">
+          <div
+            className=" h-[29vw] w-[30.5vw] [border-radius:50%] 
+           [background:radial-gradient(125%_125%_at_50%_10%,#4e695652_40%,#4e695605_90%)] 
+           top-[50%] left-[50%] [transform:translate(-50%,-50%)] absolute"
+          ></div>
+          <form
+            onSubmit={handleSubmit}
+            className="  w-[23vw] h-[20vw] px-[1vw] py-[4vh] mx-auto flex flex-col relative  justify-evenly z-10"
+          >
+            <div className=" absolute top-0 left-[50%] [transform:translate(-50%,-50%)] text-[1.2vw]  font-medium"></div>
+            <div>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className=" focus:outline-none  w-full px-[1vw] py-[1.3vh] rounded-lg border-[.125rem] border-[#4e7054] border-b-4 border-b-[#4e7054]"
+                placeholder="Enter Your Name"
+              />
+            </div>
 
-          <div className=" flex flex-row">
-            <form
-              onSubmit={handleSubmit}
-              className="flex justify-center items-center flex-col gap-3 w-[100%] text-xl"
+            <div>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className=" focus:outline-none w-full px-[1vw] py-[1.3vh] rounded-lg border-[.125rem] border-[#4e7054] border-b-4 border-b-[#4e7054]"
+                placeholder="Enter Your Email"
+              />
+            </div>
+
+            <div>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className=" focus:outline-none w-full px-[1vw] py-[1.3vh] rounded-lg border-[.125rem] border-[#4e7054] border-b-4 border-b-[#4e7054]"
+                placeholder="Leave a message"
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-[1vw] py-[1vh] rounded-lg border-[.125rem] border-[#2e4132] border-b-4 border-b-[#2e4132] font-semibold bg-[#b5ddbe] hover:bg-[#d2ffdc] transition-colors"
             >
-              <div className="form-group w-[70%]">
-                <label htmlFor="name">Name: </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className=" text-white w-[80%] rounded-2xl bg-transparent border-2 border-green-600 outline-none p-1"
-                />
-              </div>
-              <div className="form-group w-[70%]">
-                <label htmlFor="email">Email: </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className=" text-white w-[80%] rounded-xl bg-transparent border-2 border-green-600 outline-none p-1"
-                />
-              </div>
-              <div className="form-group flex items-center gap-1 w-[70%]">
-                <label htmlFor="message">Message: </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className=" text-white w-[80%] rounded-xl bg-transparent border-2 border-green-600 outline-none p-1"
-                />
-              </div>
-              <button
-                type="submit"
-                className=" bg-green-600 p-3 w-60 rounded-2xl mt-10 outline-none"
-              >
-                Submit
-              </button>
-            </form>
-            <img src={pic} alt="" className=" w-[40%]" />
-          </div>
+              Submit
+            </button>
+          </form>
         </div>
       </div>
     </>
