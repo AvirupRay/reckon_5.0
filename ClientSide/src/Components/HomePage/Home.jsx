@@ -78,7 +78,7 @@ function Home() {
               </h1>
               <button
                 id="btninball"
-                className="p-5 bg-white w-40 rounded-full font-bold text-xl mt-3"
+                className="p-5 bg-white w-40 rounded-full font-bold text-xl mt-3 hover:bg-[#202020] hover:text-[#fffeef] transition-colors"
                 onClick={() => {
                   navigate("/login");
                 }}
