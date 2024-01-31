@@ -1,10 +1,22 @@
 import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { IoIosArrowDropdownCircle, IoIosArrowDropup } from "react-icons/io";
-function Cards({ name, quantity, date, location, details }) {
+function Cards({
+  id,
+  name,
+  quantity,
+  date,
+  location,
+  details,
+  order,
+  setOrder,
+}) {
   const box = useRef(null);
   const [des, setDes] = useState(false);
-  function handleClick() {}
+
+  function added() {
+    setOrder([...order, { id, name, quantity, date, location, details }]);
+  }
 
   function more() {
     if (des == true) {
@@ -27,8 +39,8 @@ function Cards({ name, quantity, date, location, details }) {
           <div className="w-[10vw]">Best Before : {date}</div>
           <div className="w-[10vw]">Location : {location}</div>
           <button
-            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold"
-            onClick={handleClick}
+            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500"
+            onClick={added}
           >
             Add
           </button>

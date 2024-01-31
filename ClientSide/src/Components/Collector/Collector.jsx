@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import { RefreshCw } from "lucide-react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Trash2 } from "lucide-react";
 
 const Collector = () => {
   const [style, setStyle] = useState(
@@ -10,6 +11,7 @@ const Collector = () => {
   );
   const [refresh, setRefresh] = useState(0);
   const [foodlist, setFoodlist] = useState([]);
+  const [order, setOrder] = useState([]);
 
   useEffect(() => {
     axios
@@ -31,22 +33,31 @@ const Collector = () => {
     refresh == 0 ? setRefresh(1) : setRefresh(0);
   }
 
+  function trashed() {
+    setOrder([]);
+  }
+
   return (
     <>
       <div className=" flex h-[100vh]   pt-[5vw] ">
         <div className=" w-full flex flex-col">
           <div className="  h-[18vh] px-[2.5vw] py-[2.5vh] relative ">
             <div className=" bg-[#b0cf7a] h-full rounded-lg shadow-inner overflow-x-scroll scrollbar-hide px-[1.2vw] py-[1.5vh] flex gap-[.5vw] justify-start">
-              <div className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg">
-                Cards
-              </div>
-              <div className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg">
-                Cards
-              </div>
-              <div className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg">
-                Cards
-              </div>
+              {order.map((i) => (
+                <div className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg">
+                  {i.name} {"\t"} {i.quantity}
+                  <br />
+                  {i.date} {"\t"}
+                  {i.location}
+                </div>
+              ))}
             </div>
+            <button
+              className="absolute bottom-[1vh] font-semibold right-[14vw] bg-[#b0cf7a] p-1 rounded-3xl text-black border-2 border-black hover:text-white hover:bg-black transition-colors active:scale-90"
+              onClick={trashed}
+            >
+              <Trash2 size={15} />
+            </button>
             <button className=" absolute bottom-[1vh] font-semibold right-[3.5vw] bg-[#b0cf7a] px-[2vw] py-[.8vh] rounded-3xl text-black border-2 border-black hover:text-white hover:bg-black transition-colors">
               Checkout
             </button>
@@ -72,11 +83,14 @@ const Collector = () => {
               {foodlist.map((i) => (
                 <Cards
                   key={i._id}
+                  id={i._id}
                   name={i.name}
                   quantity={i.quantity}
                   date={i.date}
                   location={i.location}
                   details={i.details}
+                  order={order}
+                  setOrder={setOrder}
                 />
               ))}
             </div>
