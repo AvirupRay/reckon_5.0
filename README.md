@@ -83,5 +83,5 @@ Note: This project is not completed yet, We am currently working on it. A lot of
 
 ## Feedback
 
-If you have any feedback, please reach out to us at avirupraytoon@gmail.com 
+If you have any feedback, please reach out to us at avirupraytun@gmail.com 
 
