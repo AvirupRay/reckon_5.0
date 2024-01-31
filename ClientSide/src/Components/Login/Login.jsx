@@ -31,11 +31,21 @@ function Login() {
           console.log("Axios Side Error", error);
         });
     } else {
-      // const userLogin = { username, password };
       axios
         .get(`http://localhost:3000/userinfo/login/${username}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data.password);
+          if (!res.data) {
+            console.log("wrong username");
+          } else if (password !== res.data.password) {
+            console.log("password didn't matched!!");
+          } else if (collector !== res.data.collector) {
+            console.log("you aren't a collector !!");
+          } else {
+            console.log("logged in sucessfully!!");
+            setPass("");
+            setUname("");
+          }
         })
         .catch((err) => {
           console.log("Axios Side Error!!", err);

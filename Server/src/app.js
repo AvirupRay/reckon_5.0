@@ -41,7 +41,7 @@ app.get("/userinfo/login/:username", async (req, res) => {
   try {
     const usernameIn = req.params.username;
     const user = await UserDetails.findOne({ username: usernameIn });
-    return res.status(200).json({ user, usernameIn });
+    return res.status(200).json(user);
   } catch (error) {
     console.error("User Finding Issue!!", error.message);
   }
