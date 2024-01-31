@@ -7,7 +7,7 @@ import { Trash2 } from "lucide-react";
 
 const Collector = () => {
   const [style, setStyle] = useState(
-    " bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+    " bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
   );
   const [refresh, setRefresh] = useState(0);
   const [foodlist, setFoodlist] = useState([]);
@@ -22,11 +22,11 @@ const Collector = () => {
 
   function refreshfunc() {
     setStyle(
-      "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit rotate-[360deg] transition-transform duration-500 scale-90"
+      "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black h-fit w-fit rotate-[360deg] transition-transform duration-500 scale-90"
     );
     setTimeout(() => {
       setStyle(
-        "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+        "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
       );
     }, 500);
 
@@ -78,7 +78,7 @@ const Collector = () => {
                 <RefreshCw size={15} />
               </button>
             </div>
-            <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col items-center gap-4">
+            <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col items-center gap-4 bg-[#f7f7f7] rounded-xl">
               {/* cards */}
               {foodlist.map((i) => (
                 <Cards
