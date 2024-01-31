@@ -26,9 +26,9 @@ const Header = () => {
       <div className="[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#8fa88d7c_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#5672566b_40%,#8fa88d7c_100%)] backdrop-blur-sm  h-[6.5vh] mx-2 my-2 rounded-2xl  flex gap-[1vw] shadow-inner justify-normal items-center">
         <NavLink
           className={() => `
-          h-[6.5vh] px-[2vw] py-1 mx-3 text-md rounded-md transition-all flex items-center justify-center border-b-[.3rem] border-transparent font-semibold self-center`}
+          h-[6.5vh] px-[2vw] py-1 mx-3 text-md rounded-md transition-all flex items-center justify-center  border-transparent font-semibold self-center`}
         >
-          <img src={RobinFoodLogo} className=" w-[5vw]" alt="Logo" />
+          <img src={RobinFoodLogo} className=" w-[4vw]" alt="Logo" />
         </NavLink>
         <NavLink
           to="/"
