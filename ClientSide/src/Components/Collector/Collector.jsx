@@ -44,7 +44,10 @@ const Collector = () => {
           <div className="  h-[18vh] px-[2.5vw] py-[2.5vh] relative ">
             <div className=" bg-[#b0cf7a] h-full rounded-lg shadow-inner overflow-x-scroll scrollbar-hide px-[1.2vw] py-[1.5vh] flex gap-[.5vw] justify-start">
               {order.map((i) => (
-                <div className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg">
+                <div
+                  className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg px-4 py-2"
+                  key={i.name}
+                >
                   {i.name} {"\t"} {i.quantity}
                   <br />
                   {i.date} {"\t"}
