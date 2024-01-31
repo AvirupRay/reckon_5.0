@@ -10,8 +10,10 @@ import { PiPackage } from "react-icons/pi";
 import { TbTruckDelivery } from "react-icons/tb";
 import { BiHappyBeaming } from "react-icons/bi";
 import { GrNext } from "react-icons/gr";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="h-[100vh]  w-[100vw] flex  flex-col">
@@ -34,7 +36,12 @@ function Home() {
                 </span>
                 <br /> our website provider food to the needy
               </h1>
-              <button className="p-5 bg-white w-40 rounded-full font-bold text-xl mt-3">
+              <button
+                className="p-5 bg-white w-40 rounded-full font-bold text-xl mt-3"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
                 Get Started
               </button>
             </div>
@@ -108,12 +115,12 @@ function Home() {
           </div>
 
           {/* third page */}
-          
+
           <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center">
-            <h1 className=" text-5xl m-5 font-bold mt-40">People's thought...</h1>
+            <h1 className=" text-5xl m-5 font-bold mt-40">
+              People's thought...
+            </h1>
             <div className=" flex gap-20 flex-wrap justify-center items-center bg-[#a4d687] h-[60vh] p-10 rounded-3xl">
-
-
               <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
@@ -125,55 +132,61 @@ function Home() {
                 </div>
                 <br />
                 <br />
-                <p className=" font-mono text-lg font-bold">Love the idea of the food waste reduction Definitely worth the investment. It will surely help many poors</p>
+                <p className=" font-mono text-lg font-bold">
+                  Love the idea of the food waste reduction Definitely worth the
+                  investment. It will surely help many poors
+                </p>
               </div>
 
-
               <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
-              <div className=" flex items-center justify-center flex-col gap-5">
-                <img
-                  src="https://avirupray.github.io/dabbawala/images/reviewers/p4.jpg"
-                  alt=""
-                  className="w-[40%] rounded-full"
-                />
-                <h1 className=" font-bold text-2xl">SUBRATA ROY</h1>
+                <div className=" flex items-center justify-center flex-col gap-5">
+                  <img
+                    src="https://avirupray.github.io/dabbawala/images/reviewers/p4.jpg"
+                    alt=""
+                    className="w-[40%] rounded-full"
+                  />
+                  <h1 className=" font-bold text-2xl">SUBRATA ROY</h1>
                 </div>
                 <br />
                 <br />
-                <p className=" font-mono text-lg font-bold">very easy to use website an user friendly, Well done creators</p>
+                <p className=" font-mono text-lg font-bold">
+                  very easy to use website an user friendly, Well done creators
+                </p>
               </div>
 
-
               <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
-              <div className=" flex items-center justify-center flex-col gap-5">
-                <img
-                  src="https://avirupray.github.io/dabbawala/images/reviewers/p3.jpg"
-                  alt=""
-                  className="w-[40%] rounded-full"
-                />
-                <h1 className=" font-bold text-2xl">AKASH DAS</h1>
+                <div className=" flex items-center justify-center flex-col gap-5">
+                  <img
+                    src="https://avirupray.github.io/dabbawala/images/reviewers/p3.jpg"
+                    alt=""
+                    className="w-[40%] rounded-full"
+                  />
+                  <h1 className=" font-bold text-2xl">AKASH DAS</h1>
                 </div>
                 <br />
                 <br />
-                <p className=" font-mono text-lg font-bold">This website will surely save a lot of food waste a great Idea well executed</p>
+                <p className=" font-mono text-lg font-bold">
+                  This website will surely save a lot of food waste a great Idea
+                  well executed
+                </p>
               </div>
 
-
               <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
-              <div className=" flex items-center justify-center flex-col gap-5">
-                <img
-                  src="https://avirupray.github.io/dabbawala/images/reviewers/p2.jpg"
-                  alt=""
-                  className="w-[40%] rounded-full"
-                />
-                <h1 className=" font-bold text-2xl">SHALINI GUHA</h1>
+                <div className=" flex items-center justify-center flex-col gap-5">
+                  <img
+                    src="https://avirupray.github.io/dabbawala/images/reviewers/p2.jpg"
+                    alt=""
+                    className="w-[40%] rounded-full"
+                  />
+                  <h1 className=" font-bold text-2xl">SHALINI GUHA</h1>
                 </div>
                 <br />
                 <br />
-                <p className=" font-mono text-lg font-bold">Love the idea of the food waste reduction Definitely worth the investment. It will surely help many poors</p>
+                <p className=" font-mono text-lg font-bold">
+                  Love the idea of the food waste reduction Definitely worth the
+                  investment. It will surely help many poors
+                </p>
               </div>
-
-
             </div>
           </div>
         </div>
