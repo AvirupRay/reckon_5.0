@@ -65,7 +65,7 @@ function Cards({
           ref={box}
         >
           {/* todo */}
-          <div className=" font-bold font-mono text-xl">Supplier Name</div>
+          <div className=" font-bold font-mono text-xl mt-4">Supplier Name</div>
           <div className=" bg-white p-2 rounded-xl">{details}</div>
         </div>
       </div>
