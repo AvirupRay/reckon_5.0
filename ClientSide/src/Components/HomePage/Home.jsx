@@ -43,15 +43,10 @@ function Home() {
         .from(["#pic1", "#pic2", "#pic3", "#pic4"], {
           scale: 0,
           stagger: 0.3,
-        })
-        .from(["#icon1", "#icon2", "#icon3", "#icon4", "#icon5", "#icon6"], {
-          xPercent: "-100",
-          duration: 0.4,
         });
     }, comp);
     return () => ctx.revert();
   }, []);
-
   // new
   return (
     <>
@@ -133,7 +128,7 @@ function Home() {
             id="page2"
             className="h-[100vh] w-[100vw] flex flex-col justify-center items-center"
           >
-            <div className="flex flex-row items-start justify-center mt-80">
+            <div className="flex flex-row items-start justify-center mt-80 z-40">
               <div className="w-40 flex flex-col items-center justify-center text-center">
                 <GiCampCookingPot className=" text-3xl" id="icon1" />
                 <br />
@@ -172,7 +167,10 @@ function Home() {
             <div className="flex flex-col justify-center items-center gap-5 mt-60">
               <div className=" w-[50vw] h-52 rounded-3xl flex">
                 <div className="w-[70%] bg-transparent"></div>
-                <div className="rounded-3xl bg-red-300 p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-red-500">
+                <div
+                  id="red"
+                  className="rounded-3xl bg-red-300 p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-red-500 z-50"
+                >
                   <h1 className=" text-4xl font-bold">Become a Supplier</h1>
                   <br /> supply food in a large or small scale which will help
                   needy without throwing them away
