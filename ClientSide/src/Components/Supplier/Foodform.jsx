@@ -38,6 +38,8 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
         setName("");
         setQuantity(1);
         setDate("");
+        setLocation("");
+        setDetails("");
       })
       .catch((e) => {
         console.log(e);

@@ -82,14 +82,35 @@ const FoodItems = ({ foodlistReload }) => {
           <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth ">
             {foodlist.map((dish) => (
               <li
-                className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-evenly drop-shadow "
+                className=" bg-[#fdfdfd] rounded-xl my-5 px-[1%] flex py-[1.5%] gap-[2vw] justify-evenly drop-shadow whitespace-nowrap relative"
                 key={dish._id}
               >
-                <span className=" flex-1">{dish.name}</span>
-                <span className=" flex-1">Quantity: {dish.quantity}</span>
-                <span className=" flex-1">Best Before: {dish.date}</span>
-                <span className=" flex-1">Located at: {dish.location}</span>
-                <span className=" flex-1">Description: {dish.details}</span>
+                <span className=" w-[15%] flex items-center justify-center font-medium relative ">
+                  <span className="  absolute top-[-1.3vw] font-normal bg-[#74886f] px-[.3vw] py-[.1vh] text-[#ffffff] rounded-md ">
+                    Food Name
+                  </span>
+                  <p className="mt-[1vh] mx-auto w-[7.5vw]  whitespace-break-spaces text-center overflow-clip ">
+                    <p className=" ">{dish.name}</p>
+                  </p>
+                </span>
+                <span className=" flex-[.3]  flex items-center justify-center">
+                  Quantity: {dish.quantity}
+                </span>
+                <div className=" flex-[1.2]] flex flex-col items-center">
+                  <span className=" flex-1 text">Best Before: {dish.date}</span>
+                  <span className=" flex-1 text">
+                    Location: {dish.location}
+                  </span>
+                </div>
+
+                <div className=" flex-[1.3] px-[.2vw] flex flex-col items-center text-ellipsis justify-start bg-[#dbd9c09a] rounded-md min-w-14 shadow-inner relative">
+                  <div className=" text-base absolute top-[-1.55vw] px-[.5vw] bg-[#8da894] rounded-md text-[#ffffff] shadow-inner">
+                    Description
+                  </div>
+                  <p className=" whitespace-break-spaces line-clamp-1 break-all">
+                    {dish.details}
+                  </p>
+                </div>
               </li>
             ))}
           </ul>

@@ -18,10 +18,10 @@ body {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  /* padding-bottom: 1rem; */
+  justify-items: center;
 }
 .textdiv {
   display: flex;
@@ -66,6 +66,7 @@ body {
   margin: auto;
   font-weight: 800;
   transition: all 0.25s ease-in-out;
+  margin-bottom: 50px;
 }
 .btn:hover {
   background-color: black;
