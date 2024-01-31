@@ -2,8 +2,12 @@ import React, { cloneElement, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "../../App.css";
 import axios from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserType } from "../../Apps/userTypeSlice";
 
 function Login() {
+  const dispatch = useDispatch();
   const comp = useRef(null);
 
   const box1Ref = useRef(null);
@@ -18,6 +22,7 @@ function Login() {
   const [loginText, setLoginText] = useState("");
   //not yet used in form
   const [collector, setcollector] = useState("");
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
     if (action) {
@@ -46,6 +51,8 @@ function Login() {
             loginPopUp();
           } else {
             setLoginText("Logged in Sucessfully");
+            dispatch(setUserType(collector));
+            navigate(`/${res.data.collector}`);
             loginPopUp();
             setPass("");
             setUname("");
@@ -76,7 +83,8 @@ function Login() {
     setPass("");
     setTimeout(() => {
       setRegSucc(false);
-    }, 2000);
+      navigate(`/${collector}`);
+    }, 1500);
   };
 
   //for login checks
@@ -84,6 +92,8 @@ function Login() {
     setLoginStatus(true);
     setTimeout(() => {
       setLoginStatus(false);
+      if (loginText === "Logged in Sucessfully") {
+      }
     }, 1500);
   };
 
@@ -106,7 +116,7 @@ function Login() {
         className={` absolute bg-[#eb5959] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
           loginStatus ? "right-[2vw]" : " right-[-30vw]"
         } ${
-          loginText === "Logged in Sucessfully"
+          loginText == "Logged in Sucessfully"
             ? "bg-[#94eb59] text-[#fcf9f2]"
             : "bg-[#eb5959]"
         }`}

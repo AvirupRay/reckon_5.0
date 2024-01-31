@@ -5,7 +5,8 @@ import axios from "axios";
 import { RefreshCw } from "lucide-react";
 
 const FoodItems = ({ foodlistReload }) => {
-  //const Foodlist = useSelector((state) => state.food.Foodlist);
+  const Foodlist = useSelector((state) => state.food.Foodlist);
+  console.log(Foodlist);
 
   const [foodlist, setFoodlist] = useState([]);
   const [refresh, setRefresh] = useState(0);
@@ -19,7 +20,7 @@ const FoodItems = ({ foodlistReload }) => {
       .then((response) => setFoodlist(response.data))
       .catch((error) => console.error(error));
   }, [refresh, foodlistReload]);
-  console.log(foodlist.length);
+  // console.log(foodlist.length);
 
   function refreshfunc() {
     setStyle(
@@ -90,7 +91,7 @@ const FoodItems = ({ foodlistReload }) => {
                     Food Name
                   </span>
                   <p className="mt-[1vh] mx-auto w-[7.5vw]  whitespace-break-spaces text-center overflow-clip ">
-                    <p className=" ">{dish.name}</p>
+                    <span className=" ">{dish.name}</span>
                   </p>
                 </span>
                 <span className=" flex-[.3]  flex items-center justify-center">

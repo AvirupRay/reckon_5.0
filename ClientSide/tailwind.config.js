@@ -4,6 +4,14 @@ export default {
   darkMode: "class",
   theme: {
     extend: {},
+    fontFamily: {
+      Arimo: "Arimo",
+      BreeSerif: "Bree Serif",
+      FiraSans: "Fira Sans",
+      Rubik: "Rubik",
+      Signika: "Signika",
+      Sora: "Sora",
+    },
   },
   plugins: [],
 };
