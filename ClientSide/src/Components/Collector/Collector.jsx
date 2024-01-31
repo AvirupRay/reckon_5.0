@@ -1,7 +1,36 @@
 import React from "react";
 import Cards from "./Cards";
+import { RefreshCw } from "lucide-react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const Collector = () => {
+  const [style, setStyle] = useState(
+    " bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+  );
+  const [refresh, setRefresh] = useState(0);
+  const [foodlist, setFoodlist] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/foods")
+      .then((response) => setFoodlist(response.data))
+      .catch((error) => console.error(error));
+  }, [refresh]);
+
+  function refreshfunc() {
+    setStyle(
+      "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit rotate-[360deg] transition-transform duration-500 scale-90"
+    );
+    setTimeout(() => {
+      setStyle(
+        "bg-[#6A7A50] text-white p-2 rounded-2xl text-l font-black drop-shadow-md h-fit w-fit scale-100 hover:bg-[#373f29] transition-colors"
+      );
+    }, 500);
+
+    refresh == 0 ? setRefresh(1) : setRefresh(0);
+  }
+
   return (
     <>
       <div className=" flex h-[100vh]   pt-[5vw] ">
@@ -33,11 +62,23 @@ const Collector = () => {
               <div className=" cursor-pointer bg-zinc-300 px-[1.2vw] py-[.5vh] rounded-2xl font-medium text-sm">
                 CONSUMABLE
               </div>
+              {/* refresh button here */}
+              <button className={style} onClick={refreshfunc} id="refr">
+                <RefreshCw size={15} />
+              </button>
             </div>
             <div className="  mx-[2vw] my-[2vh] h-[58vh] px-[1.8vw] py-[2vh] overflow-y-scroll scroll-smooth  scrollbar-hide flex flex-col items-center gap-4">
               {/* cards */}
-              <Cards />
-              <Cards />
+              {foodlist.map((i) => (
+                <Cards
+                  key={i._id}
+                  name={i.name}
+                  quantity={i.quantity}
+                  date={i.date}
+                  location={i.location}
+                  details={i.details}
+                />
+              ))}
             </div>
           </div>
         </div>

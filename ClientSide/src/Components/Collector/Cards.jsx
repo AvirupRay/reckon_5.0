@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { IoIosArrowDropdownCircle, IoIosArrowDropup } from "react-icons/io";
-function Cards() {
+function Cards({ name, quantity, date, location, details }) {
   const box = useRef(null);
   const [des, setDes] = useState(false);
   function handleClick() {}
@@ -9,10 +9,10 @@ function Cards() {
   function more() {
     if (des == true) {
       setDes(false);
-      gsap.to(box.current, {height:'0vh', duration: 0.3 });
+      gsap.to(box.current, { height: "0vh", duration: 0.3 });
     } else {
       setDes(true);
-      gsap.to(box.current, {height:'15vh', duration: 0.3 });  
+      gsap.to(box.current, { height: "15vh", duration: 0.3 });
     }
   }
   return (
@@ -22,10 +22,10 @@ function Cards() {
           id="main"
           className=" bg-[#D9D9D9] h-[10vh] w-[90vw] py-4 px-[2vw] flex justify-evenly items-center rounded-md shadow-lg"
         >
-          <div>FoodName</div>
-          <div>Quantity</div>
-          <div>Best Before</div>
-          <div>Location</div>
+          <div className="w-[10vw]">{name}</div>
+          <div className="w-[10vw]">Quantity : {quantity}</div>
+          <div className="w-[10vw]">Best Before : {date}</div>
+          <div className="w-[10vw]">Location : {location}</div>
           <button
             className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold"
             onClick={handleClick}
@@ -38,15 +38,12 @@ function Cards() {
         </div>
         {/* description */}
         <div
-          className="bg-[#CCE4A2] h-[0vh] w-[88vw] py-2 px-[2vw] rounded-b-xl relative transition-transform overflow-y-scroll scrollbar-hide scroll-smooth" ref={box}
+          className="bg-[#CCE4A2] h-[0vh] w-[88vw] py-[0.75vh] px-[2vw] rounded-b-xl relative transition-transform overflow-hidden"
+          ref={box}
         >
           {/* todo */}
-          <div className=" font-bold font-mono text-xl">company name</div>
-          <div className=" bg-white p-2 rounded-xl">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
-            rerum necessitatibus natus, beatae incidunt tenetur libero unde quae
-            est facilis.
-          </div>
+          <div className=" font-bold font-mono text-xl">Supplier Name</div>
+          <div className=" bg-white p-2 rounded-xl">{details}</div>
         </div>
       </div>
     </>
