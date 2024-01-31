@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMode } from "../../Apps/modeSlice";
+import RobinFoodLogo from "../../Pictures/RobinFoodLogo.png";
 
 const Header = () => {
   const Dispatch = useDispatch();
@@ -25,9 +26,9 @@ const Header = () => {
       <div className="[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#8fa88d7c_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#5672566b_40%,#8fa88d7c_100%)] backdrop-blur-sm  h-[6.5vh] mx-2 my-2 rounded-2xl  flex gap-[1vw] shadow-inner justify-normal items-center">
         <NavLink
           className={() => `
-          h-[6.5vh] px-[2.5vw] py-1 mx-3 text-md rounded-md transition-all flex items-center justify-center border-b-[.3rem] border-transparent font-semibold bg-[#5d7e5d6b] self-center`}
+          h-[6.5vh] px-[2vw] py-1 mx-3 text-md rounded-md transition-all flex items-center justify-center border-b-[.3rem] border-transparent font-semibold self-center`}
         >
-          Logo
+          <img src={RobinFoodLogo} className=" w-[5vw]" alt="Logo" />
         </NavLink>
         <NavLink
           to="/"

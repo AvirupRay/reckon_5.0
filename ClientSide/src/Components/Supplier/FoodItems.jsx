@@ -79,15 +79,17 @@ const FoodItems = ({ foodlistReload }) => {
           >
             Add Some Items....
           </span>
-          <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth">
+          <ul className="  h-full overflow-y-scroll scrollbar-hide  scroll-smooth ">
             {foodlist.map((dish) => (
               <li
-                className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-around drop-shadow"
+                className=" bg-[#fdfdfd] rounded-xl my-5 px-5 flex py-[3%] justify-evenly drop-shadow "
                 key={dish._id}
               >
                 <span className=" flex-1">{dish.name}</span>
                 <span className=" flex-1">Quantity: {dish.quantity}</span>
                 <span className=" flex-1">Best Before: {dish.date}</span>
+                <span className=" flex-1">Located at: {dish.location}</span>
+                <span className=" flex-1">Description: {dish.details}</span>
               </li>
             ))}
           </ul>

@@ -14,7 +14,8 @@ function Login() {
   const [password, setPass] = useState("");
   const [action, setAction] = useState(false);
   const [regSucc, setRegSucc] = useState(false);
-
+  const [loginStatus, setLoginStatus] = useState(false);
+  const [loginText, setLoginText] = useState("");
   //not yet used in form
   const [collector, setcollector] = useState(true);
 
@@ -31,11 +32,25 @@ function Login() {
           console.log("Axios Side Error", error);
         });
     } else {
-      // const userLogin = { username, password };
       axios
         .get(`http://localhost:3000/userinfo/login/${username}`)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data.password);
+          if (!res.data) {
+            setLoginText("Wrong Username !!");
+            loginPopUp();
+          } else if (password !== res.data.password) {
+            setLoginText("Wrong Password !!");
+            loginPopUp();
+          } else if (collector !== res.data.collector) {
+            setLoginText("u aren't a collector!!");
+            loginPopUp();
+          } else {
+            setLoginText("Logged in Sucessfully");
+            loginPopUp();
+            setPass("");
+            setUname("");
+          }
         })
         .catch((err) => {
           console.log("Axios Side Error!!", err);
@@ -54,7 +69,7 @@ function Login() {
       gsap.to(box2Ref.current, { xPercent: 0, duration: 0.3 });
     }
   }
-  // for successfull pop up
+  // for successfully registering  pop up
   const regPopUp = () => {
     setRegSucc(true);
     setUname("");
@@ -65,6 +80,14 @@ function Login() {
     }, 2000);
   };
 
+  //for login checks
+  const loginPopUp = () => {
+    setLoginStatus(true);
+    setTimeout(() => {
+      setLoginStatus(false);
+    }, 1500);
+  };
+
   return (
     <div
       id="bgbody"
@@ -72,11 +95,24 @@ function Login() {
     >
       {/* Registered Successfully pop up */}
       <div
-        className={` absolute bg-[#7a7420] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
+        className={` absolute bg-[#67b33c] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
           regSucc ? "right-[2vw]" : " right-[-30vw]"
         }`}
       >
         Registered Sucessfully!
+      </div>
+
+      {/* Login status checks */}
+      <div
+        className={` absolute bg-[#eb5959] px-[2vw] py-[1vh] rounded-lg font-medium bottom-[3vh]  transition-all ${
+          loginStatus ? "right-[2vw]" : " right-[-30vw]"
+        } ${
+          loginText === "Logged in Sucessfully"
+            ? "bg-[#94eb59] text-[#fcf9f2]"
+            : "bg-[#eb5959]"
+        }`}
+      >
+        {loginText}
       </div>
 
       {/* box */}
