@@ -15,7 +15,7 @@ const userdetailSchema = new Schema(
       required: true,
     },
     collector: {
-      type: Boolean,
+      type: String,
       required: true,
     },
   },
