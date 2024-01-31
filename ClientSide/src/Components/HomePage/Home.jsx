@@ -169,7 +169,10 @@ function Home() {
                 <div className="w-[70%] bg-transparent"></div>
                 <div
                   id="red"
-                  className="rounded-3xl bg-red-300 p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-red-500 z-50"
+                  className="rounded-3xl bg-[#8bc78b] p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-[#68c465] z-50 cursor-pointer"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
                 >
                   <h1 className=" text-4xl font-bold">Become a Supplier</h1>
                   <br /> supply food in a large or small scale which will help
@@ -177,7 +180,12 @@ function Home() {
                 </div>
               </div>
               <div className=" w-[50vw] h-52 rounded-3xl flex">
-                <div className="rounded-3xl bg-blue-400 p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-blue-500">
+                <div
+                  className="rounded-3xl bg-[#517251] p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-[#4d6d4d] text-[#fffded]  cursor-pointer"
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
                   <h1 className=" text-4xl font-bold">Become a Collector</h1>
                   <br /> collect food for yourself or help poor people who can't
                   efford to buy food

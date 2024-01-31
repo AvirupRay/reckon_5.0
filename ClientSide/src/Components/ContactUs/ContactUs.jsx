@@ -24,14 +24,17 @@ const ContactUs = () => {
   return (
     <>
       {/* We've been waiting for you. */}
-      <div className="  flex flex-col justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r bg-[#fffde8] pt-[10vh]">
+      <div
+        className="  flex flex-col justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r [background:radial-gradient(125%_125%_at_50%_10%,#fffde8_40%,#fffde810_90%)]
+ pt-[10vh]"
+      >
         <div className=" h-[15vh] w-full flex flex-col justify-center items-center">
           <span className=" text-[2.5vw] text-center font-medium">
             We've been waiting <br />
             for your feedback.
           </span>
           <span className=" text-[.9vw] text-[#2c2c2c]">
-            Let us what can we improve
+            Let us know what can we improve
           </span>
         </div>
         <div className="  h-[70vh] w-full px-[2vw] py-[2vh] flex items-center relative">
