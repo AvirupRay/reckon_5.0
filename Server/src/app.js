@@ -64,6 +64,8 @@ app.post("/foods", async (req, res) => {
       quantity: req.body.quantity,
       date: req.body.date,
       stock: req.body.stock,
+      location: req.body.location,
+      details: req.body.details,
     };
 
     const food = await allfoods.create(newfood);

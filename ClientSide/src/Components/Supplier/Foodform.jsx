@@ -9,9 +9,11 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [date, setDate] = useState("");
+  const [location, setLocation] = useState("");
+  const [details, setDetails] = useState("");
+  const [stock, setStock] = useState(true);
   const [checkplus, setCheckPlus] = useState(false);
   const [checkminus, setCheckMinus] = useState(false);
-  const [stock, setStock] = useState(true);
   const Dispatch = useDispatch();
 
   //to submit the form
@@ -24,6 +26,8 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
       quantity,
       date,
       stock,
+      location,
+      details,
     };
 
     axios
@@ -160,6 +164,22 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
               required
             />
           </div>
+          <input
+            onChange={(e) => setLocation(e.target.value)}
+            value={location}
+            placeholder="Enter Location"
+            className="textarea"
+            type="type"
+            required
+          />
+          <input
+            onChange={(e) => setDetails(e.target.value)}
+            value={details}
+            placeholder="Description"
+            className="textarea"
+            type="type"
+            required
+          />
         </div>
         <br />
         <br />
