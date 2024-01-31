@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from "react";
+import React, { cloneElement, useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "../../App.css";
 import axios from "axios";
@@ -17,8 +17,7 @@ function Login() {
   const [loginStatus, setLoginStatus] = useState(false);
   const [loginText, setLoginText] = useState("");
   //not yet used in form
-  const [collector, setcollector] = useState(true);
-
+  const [collector, setcollector] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
     if (action) {
@@ -43,7 +42,7 @@ function Login() {
             setLoginText("Wrong Password !!");
             loginPopUp();
           } else if (collector !== res.data.collector) {
-            setLoginText("u aren't a collector!!");
+            setLoginText("Wrong User Type!!");
             loginPopUp();
           } else {
             setLoginText("Logged in Sucessfully");
@@ -171,6 +170,7 @@ function Login() {
                 id="supplier"
                 name="fav_language"
                 value="supplier"
+                onChange={(e) => setcollector(e.target.value)}
               />
               <label htmlFor="supplier" className=" cursor-pointer">
                 Supplier
@@ -184,6 +184,7 @@ function Login() {
                 id="collector"
                 value="collector"
                 className="checked:active:bg-emerald-400 checked:focus:bg-emerald-400 cursor-pointer "
+                onChange={(e) => setcollector(e.target.value)}
               />
               <label htmlFor="collector" className=" cursor-pointer">
                 Collector

@@ -14,9 +14,20 @@ function Cards({
   const box = useRef(null);
   const [des, setDes] = useState(false);
 
-  function added() {
-    setOrder([...order, { id, name, quantity, date, location, details }]);
-  }
+  const added = () => {
+    console.log("add called", name);
+    const isFound = order.some((i) => {
+      if (i.id === id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(isFound);
+    if (!isFound) {
+      setOrder([...order, { id, name, quantity, date, location, details }]);
+    }
+  };
 
   function more() {
     if (des == true) {
@@ -39,7 +50,7 @@ function Cards({
           <div className="w-[10vw]">Best Before : {date}</div>
           <div className="w-[10vw]">Location : {location}</div>
           <button
-            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500"
+            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500 "
             onClick={added}
           >
             Add
@@ -54,7 +65,7 @@ function Cards({
           ref={box}
         >
           {/* todo */}
-          <div className=" font-bold font-mono text-xl">Supplier Name</div>
+          <div className=" font-bold font-mono text-xl mt-4">Supplier Name</div>
           <div className=" bg-white p-2 rounded-xl">{details}</div>
         </div>
       </div>
