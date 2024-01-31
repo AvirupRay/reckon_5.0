@@ -35,7 +35,7 @@ Install my-project with npm
 
 
 
-- Clone the repository: git clone https://github.com/yourusername/foodconnect.git
+- Clone the repository: git clone [https://github.com/yourusername/foodconnect.git](https://github.com/AvirupRay/reckon_5.0.git)
 For frontend:
 - Navigate to the project directory:
 ```bash
