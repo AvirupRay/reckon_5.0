@@ -23,7 +23,7 @@ const ContactUs = () => {
 
   return (
     <>
-      <div className="  flex  justify-center items-center h-[100vh] w-[100vw]">
+      <div className="  flex  justify-center items-center h-[100vh] w-[100vw] bg-gradient-to-r bg-[#fffde8]">
         <div className=" bg-black flex flex-col justify-center items-center p-10 gap-3 w-3/5 h-auto text-white rounded-2xl">
           <h2 className=" text-5xl font-serif mb-10 text-green-600 font-bold">
             Contact Us
