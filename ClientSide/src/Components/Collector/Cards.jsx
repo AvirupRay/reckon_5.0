@@ -13,11 +13,20 @@ function Cards({
 }) {
   const box = useRef(null);
   const [des, setDes] = useState(false);
-  const [addActive, setAddActive] = useState(false);
 
   const added = () => {
-    setOrder([...order, { id, name, quantity, date, location, details }]);
-    setAddActive(!addActive);
+    console.log("add called", name);
+    const isFound = order.some((i) => {
+      if (i.id === id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(isFound);
+    if (!isFound) {
+      setOrder([...order, { id, name, quantity, date, location, details }]);
+    }
   };
 
   function more() {
@@ -43,7 +52,6 @@ function Cards({
           <button
             className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500 "
             onClick={added}
-            disabled={addActive}
           >
             Add
           </button>
