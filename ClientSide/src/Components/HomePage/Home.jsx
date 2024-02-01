@@ -28,7 +28,7 @@ function Home() {
         delay: 0.3,
       })
         .from("#ball1", {
-          yPercent: "-100",
+          yPercent: "-120",
           duration: 0.8,
           delay: 0.3,
         })
@@ -198,75 +198,82 @@ function Home() {
           {/* third page */}
 
           <div className="h-[100vh] w-[100vw] flex flex-col justify-center items-center mt-[30vh] ">
-            <h1 className=" text-5xl m-5 font-bold mt-40">
+            <h1 className=" text-5xl m-5 font-semibold mt-40 font-Arimo text-[#353535d3]">
               People's thought...
             </h1>
-            <div className=" flex gap-20 flex-wrap justify-center items-center bg-[#a4d687] h-[100vh] p-10 rounded-3xl overflow-hidden mt-4 pb-4">
-              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
+            <div className=" flex gap-[3vw] flex-wrap justify-center items-center bg-[#a4d687] h-[60vh] rounded-3xl overflow-x-auto scrollbar-hide scroll-smooth mt-[2vh] mb-[3vh] py-[1vh] px-[1vw] w-[98vw] ">
+              <div className=" w-[20vw] bg-[#fbffeb] h-[50vh] rounded-3xl p-5 mt-10 text-center flex flex-col drop-shadow-lg">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://i1.sndcdn.com/avatars-9a6uo7vosAFKkz3f-3YjIWw-t500x500.jpg"
                     alt=""
-                    className="w-[40%] rounded-full"
+                    className="w-[40%] rounded-full drop-shadow-md"
                   />
-                  <h1 className=" font-bold text-2xl">HARPREET SINGH</h1>
+                  <h1 className=" font-medium text-xl font-Sora">
+                    HARPREET SINGH
+                  </h1>
                 </div>
-                <br />
-                <br />
-                <p className=" font-mono text-lg font-bold">
-                  Love the idea of the food waste reduction Definitely worth the
-                  investment. It will surely help many poors
-                </p>
+                <div className=" h-[50%] bg-[#e3e4d4] flex items-center px-[.2vw] rounded-lg ">
+                  <p className=" font-Rubik text-lg font-[420] text-[#474747] line-clamp-4">
+                    Love the idea of the food waste reduction Definitely worth
+                    the investment. It will surely help many poors.
+                  </p>
+                </div>
               </div>
 
-              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
+              <div className=" w-[20vw] bg-[#fbffeb] h-[50vh] rounded-3xl p-5 mt-10 text-center flex flex-col drop-shadow-lg">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://avirupray.github.io/dabbawala/images/reviewers/p4.jpg"
                     alt=""
-                    className="w-[40%] rounded-full"
+                    className="w-[40%] rounded-full drop-shadow-md"
                   />
-                  <h1 className=" font-bold text-2xl">SUBRATA ROY</h1>
+                  <h1 className=" font-medium text-xl font-Sora">
+                    SUBRATA ROY
+                  </h1>
                 </div>
-                <br />
-                <br />
-                <p className=" font-mono text-lg font-bold">
-                  very easy to use website an user friendly, Well done creators
-                </p>
+                <div className=" h-[50%] bg-[#e3e4d4] flex items-center px-[.2vw] rounded-lg ">
+                  <p className=" font-Rubik text-lg font-[420] text-[#474747] line-clamp-4">
+                    very easy to use website an user friendly, Well done
+                    creators
+                  </p>
+                </div>
               </div>
 
-              <div className=" w-[20vw] bg-white h-[50vh] rounded-3xl p-5 mt-10 text-center">
+              <div className=" w-[20vw] bg-[#fbffeb] h-[50vh] rounded-3xl p-5 mt-10 text-center flex flex-col drop-shadow-lg">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://avirupray.github.io/dabbawala/images/reviewers/p3.jpg"
                     alt=""
-                    className="w-[40%] rounded-full"
+                    className="w-[40%] rounded-full drop-shadow-md"
                   />
-                  <h1 className=" font-bold text-2xl">AKASH DAS</h1>
+                  <h1 className=" font-medium text-xl font-Sora">AKASH DAS</h1>
                 </div>
-                <br />
-                <br />
-                <p className=" font-mono text-lg font-bold">
-                  This website will surely save a lot of food waste a great Idea
-                  well executed
-                </p>
+                <div className=" h-[50%] bg-[#e3e4d4] flex items-center px-[.2vw] rounded-lg ">
+                  <p className=" font-Rubik text-lg font-[420] text-[#474747] line-clamp-4">
+                    This website will surely save a lot of food waste a great
+                    Idea well executed.
+                  </p>
+                </div>
               </div>
 
-              <div className=" w-[20vw] bg-white h-[40vh] rounded-3xl p-5 mt-10 text-center">
+              <div className=" w-[20vw] bg-[#fbffeb] h-[50vh] rounded-3xl p-5 mt-10 text-center flex flex-col drop-shadow-lg">
                 <div className=" flex items-center justify-center flex-col gap-5">
                   <img
                     src="https://avirupray.github.io/dabbawala/images/reviewers/p2.jpg"
                     alt=""
-                    className="w-[40%] rounded-full"
+                    className="w-[40%] rounded-full drop-shadow-md"
                   />
-                  <h1 className=" font-bold text-2xl">SHALINI GUHA</h1>
+                  <h1 className=" font-medium text-xl font-Sora">
+                    SHALINI GUHA
+                  </h1>
                 </div>
-                <br />
-                <br />
-                <p className=" font-mono text-lg font-bold">
-                  Love the idea of the food waste reduction Definitely worth the
-                  investment. It will surely help many poors
-                </p>
+                <div className=" h-[50%] bg-[#e3e4d4] flex items-center px-[.2vw] rounded-lg ">
+                  <p className=" font-Rubik text-lg font-[420] text-[#474747] line-clamp-4">
+                    Love the idea of the food waste reduction Definitely worth
+                    the investment. It will surely help many poors
+                  </p>
+                </div>
               </div>
             </div>
           </div>
