@@ -24,6 +24,10 @@ const foodschema = new Schema({
     type: String,
     required: true,
   },
+  username: {
+    type: String,
+    required: true,
+  },
 });
 
 export const allfoods = mongoose.model("allfoods", foodschema);

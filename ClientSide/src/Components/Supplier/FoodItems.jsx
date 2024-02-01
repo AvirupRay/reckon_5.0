@@ -5,9 +5,10 @@ import axios from "axios";
 import { RefreshCw } from "lucide-react";
 
 const FoodItems = ({ foodlistReload }) => {
-  const Foodlist = useSelector((state) => state.food.Foodlist);
+  // const Foodlist = useSelector((state) => state.food.Foodlist);
   // console.log(Foodlist);
-
+  const userInformation = useSelector((state) => state.userinfo.userInfos);
+  const username = userInformation.username;
   const [foodlist, setFoodlist] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [style, setStyle] = useState(
@@ -16,7 +17,7 @@ const FoodItems = ({ foodlistReload }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/foods")
+      .get(`http://localhost:3000/foods/${username}`)
       .then((response) => setFoodlist(response.data))
       .catch((error) => console.error(error));
   }, [refresh, foodlistReload]);

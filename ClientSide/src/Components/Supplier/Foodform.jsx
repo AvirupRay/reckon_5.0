@@ -15,7 +15,8 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
   const [checkplus, setCheckPlus] = useState(false);
   const [checkminus, setCheckMinus] = useState(false);
   const Dispatch = useDispatch();
-
+  const userInformation = useSelector((state) => state.userinfo.userInfos);
+  const username = userInformation.username;
   //to submit the form
   function submitted(e) {
     e.preventDefault();
@@ -28,6 +29,7 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
       stock,
       location,
       details,
+      username,
     };
 
     axios
