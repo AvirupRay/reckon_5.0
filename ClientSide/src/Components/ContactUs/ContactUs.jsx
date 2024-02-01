@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import pic from "../../Pictures/contact_us.png";
+import axios from "axios";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,12 @@ const ContactUs = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission here
+    axios
+      .post("http://localhost:3000/review", formData)
+      .then(() => console.log("submitted !!"))
+      .catch((err) => {
+        console.error("Axios Error", err);
+      });
     console.log(formData);
     setFormData({ name: "", email: "", message: "" });
   };

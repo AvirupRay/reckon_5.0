@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { UserDetails } from "./models/userDetails.model.js";
 import { allfoods } from "./models/allfoods.model.js";
+import { allReviews } from "./models/reviewDetails.model.js";
 
 const app = express();
 
@@ -88,6 +89,25 @@ app.get("/foods/:username", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Server Error");
+  }
+});
+
+app.post("/review", async (req, res) => {
+  try {
+    if ((!req.body.name, !req.body.email, !req.body.message)) {
+      return res.status(400).send({ message: "send all required fields" });
+    }
+    const newReview = {
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message,
+    };
+
+    const review = await allReviews.create(newReview);
+    return res.status(201).send(review);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send({ message: error.message });
   }
 });
 
