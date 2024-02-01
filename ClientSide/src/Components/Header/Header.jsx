@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Sun, Moon } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMode } from "../../Apps/modeSlice";
 import RobinFoodLogo from "../../Pictures/RobinFoodLogo.png";
+import { logOutUser } from "../../Apps/userInfoSlice";
 
 const Header = () => {
-  const userType = useSelector((state) => state.userType.userTypeNow);
+  const [logOutCheck, setlogOutCheck] = useState(false);
+  const navigate = useNavigate();
+  const userInformation = useSelector((state) => state.userinfo.userInfos);
   const Dispatch = useDispatch();
   const darkMode = useSelector((state) => state.mode.darkMode);
-  // console.log(userType);
+  console.log(userInformation);
+
+  const logoutcall = () => {
+    setlogOutCheck(true);
+    setTimeout(() => {
+      setlogOutCheck(false);
+    }, 1200);
+    setTimeout(() => {
+      Dispatch(logOutUser());
+      navigate("/");
+    }, 1250);
+  };
+
   const toggleMode = () => {
     Dispatch(changeMode(darkMode));
   };
@@ -25,6 +40,13 @@ const Header = () => {
 
   return (
     <div className="  h-[3vw] bg-transparent w-full fixed z-50 ">
+      <div
+        className={` z-20 transition-all absolute  left-[50%] [transform:translate(-50%,-50%)] bg-[#d12929] border-2 border-b-4 border-[#a33434] px-[1vw] py-[1vh] rounded-lg font-Arimo text-white drop-shadow-md ${
+          logOutCheck ? "top-[250%] opacity-100" : "top-[50%] opacity-0"
+        } `}
+      >
+        Successfully Looged Out!!
+      </div>
       <div className="[background:radial-gradient(125%_125%_at_50%_10%,#e2e2e270_40%,#8fa88d7c_100%)] dark:[background:radial-gradient(125%_125%_at_50%_10%,#5672566b_40%,#8fa88d7c_100%)] backdrop-blur-sm  h-[6.5vh] mx-2 my-2 rounded-2xl  flex gap-[1vw] shadow-inner justify-normal items-center">
         <NavLink
           className={() => `
@@ -68,7 +90,8 @@ const Header = () => {
         >
           Contact Us
         </NavLink>
-        {userType == "supplier" && userType != "" ? (
+        {userInformation.usertype == "supplier" &&
+        userInformation.usertype != "" ? (
           <NavLink
             to="/supplier"
             className={({ isActive }) =>
@@ -84,7 +107,8 @@ const Header = () => {
         ) : (
           <></>
         )}
-        {userType == "collector" && userType != "" ? (
+        {userInformation.usertype == "collector" &&
+        userInformation.usertype != "" ? (
           <NavLink
             to="/collector"
             className={({ isActive }) =>
@@ -100,7 +124,28 @@ const Header = () => {
         ) : (
           <></>
         )}
-        <div className="h-[6.2vh] self-center  w-[20vw] ml-auto px-[1vw] mx-[2vw] flex items-center justify-evenly  ">
+        <div className="h-[6.2vh] self-center  w-[28vw] ml-auto px-[1vw] mx-[2vw] flex items-center justify-evenly gap-[2vw]">
+          {userInformation.username != "" ? (
+            <>
+              <button
+                className="  bg-[#ca5151f6] px-[1vw] py-[.8vh] rounded-lg font-Arimo font-medium text-white shadow-inner"
+                onClick={logoutcall}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="  bg-[#478a47f6] px-[1vw] py-[.8vh] rounded-lg font-Arimo font-medium text-white shadow-inner"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Login
+              </button>
+            </>
+          )}
           <div
             className=" bg-[#869e86ad] backdrop-blur-sm p-[.4vw] rounded-md cursor-pointer drop-shadow-md"
             onClick={toggleMode}
@@ -121,19 +166,31 @@ const Header = () => {
             />
           </div>
           <div className=" flex items-center justify-evenly bg-transparent rounded w-[13vw]  shadow-inner backdrop-blur-md h-[5.6vh] ml-auto border-[.13rem]">
-            <img
-              className="w-[2.2vw] rounded-lg object-cover select-none "
-              src="https://i1.sndcdn.com/avatars-rPurHyYvyLmOUXBc-KLy74A-t240x240.jpg"
-              alt="profile"
-            />
-            <div className="  h-[5.3vh] flex items-center select-none ">
-              <div className=" h-[4vh] flex flex-col justify-center">
-                <p className=" text-[.75vw] absolute top-[.3vh]">Name</p>
-                <span className=" opacity-70 text-[.79vw] pt-[1.2vh]">
-                  random@gamil.com
-                </span>
-              </div>
-            </div>
+            {userInformation.username != "" ? (
+              <>
+                <div className=" flex-1">
+                  <img
+                    className="w-[2.2vw] rounded-lg object-cover select-none mx-auto"
+                    src="https://i1.sndcdn.com/avatars-rPurHyYvyLmOUXBc-KLy74A-t240x240.jpg"
+                    alt="profile"
+                  />
+                </div>
+                <div className="  h-[5.3vh] flex items-center select-none flex-[2] pl-3">
+                  <div className=" h-[4vh] flex flex-col justify-center">
+                    <p className=" text-[.95vw] font-Rubik font-medium absolute top-[.2vh]">
+                      {userInformation.username}
+                    </p>
+                    <span className=" opacity-70 text-[.79vw] font-Arimo pt-[1.3vh] text-[#000000a9]">
+                      {userInformation.email}
+                    </span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <button>Login Now</button>
+              </>
+            )}
           </div>
         </div>
       </div>

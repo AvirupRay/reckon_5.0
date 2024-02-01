@@ -4,7 +4,7 @@ import "../../App.css";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setUserType } from "../../Apps/userTypeSlice";
+import { setUserInfo } from "../../Apps/userInfoSlice";
 
 function Login() {
   const dispatch = useDispatch();
@@ -51,7 +51,13 @@ function Login() {
             loginPopUp();
           } else {
             setLoginText("Logged in Sucessfully");
-            dispatch(setUserType(collector));
+            dispatch(
+              setUserInfo({
+                username,
+                usertype: collector,
+                email: res.data.email,
+              })
+            );
             navigate(`/${res.data.collector}`);
             loginPopUp();
             setPass("");
@@ -77,7 +83,8 @@ function Login() {
   }
   // for successfully registering  pop up
   const regPopUp = () => {
-    dispatch(setUserType(collector));
+    dispatch(setUserInfo({ username, usertype: collector, email }));
+    // console.log({ usertype: collector, username: username });
     setRegSucc(true);
     setUname("");
     setEmail("");

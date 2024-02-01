@@ -169,12 +169,12 @@ function Home() {
                 <div className="w-[70%] bg-transparent"></div>
                 <div
                   id="red"
-                  className="rounded-3xl bg-[#8bc78b] p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-[#68c465] z-50 cursor-pointer"
+                  className="rounded-3xl bg-[#8bc78b] p-5 hover:scale-110 hover:duration-700 transition ease-in-out hover:bg-[#68c465] z-20 cursor-pointer"
                   onClick={() => {
                     navigate("/login");
                   }}
                 >
-                  <h1 className=" text-4xl font-bold">Become a Supplier</h1>
+                  <h1 className=" text-4xl font-bold ">Become a Supplier</h1>
                   <br /> supply food in a large or small scale which will help
                   needy without throwing them away
                 </div>

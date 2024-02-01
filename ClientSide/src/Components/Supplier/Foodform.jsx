@@ -20,7 +20,7 @@ const Foodform = ({ foodlistReload, setFoodlistReload }) => {
   function submitted(e) {
     e.preventDefault();
     //Dispatch(addFoodItems({ name, quantity, date, status }));
-
+    // console.log({ name, quantity, date });
     const foods = {
       name,
       quantity,

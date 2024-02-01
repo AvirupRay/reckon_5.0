@@ -6,7 +6,7 @@ import { RefreshCw } from "lucide-react";
 
 const FoodItems = ({ foodlistReload }) => {
   const Foodlist = useSelector((state) => state.food.Foodlist);
-  console.log(Foodlist);
+  // console.log(Foodlist);
 
   const [foodlist, setFoodlist] = useState([]);
   const [refresh, setRefresh] = useState(0);
