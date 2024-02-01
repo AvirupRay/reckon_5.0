@@ -15,7 +15,7 @@ const Collector = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/foods")
+      .get("http://localhost:3000/foodList")
       .then((response) => setFoodlist(response.data))
       .catch((error) => console.error(error));
   }, [refresh]);

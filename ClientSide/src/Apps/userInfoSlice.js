@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   //getting the data from local storage
-  userInfos: JSON.parse(localStorage.getItem("userInformations")),
+  userInfos: JSON.parse(localStorage.getItem("userInformations"))
+    ? JSON.parse(localStorage.getItem("userInformations"))
+    : { username: "", usertype: "", email: "" },
   //  { username: "", usertype: "", email: "" },
 };
 

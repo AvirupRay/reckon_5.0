@@ -92,6 +92,19 @@ app.get("/foods/:username", async (req, res) => {
   }
 });
 
+app.get("/foodList", async (req, res) => {
+  try {
+    // const usernameIn = req.params.username;
+    const foods = await allfoods.find({});
+    // const foodDetails = await allfoods.find({ });
+    console.log("DB.find() Called");
+    res.status(200).json(foods);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server Error");
+  }
+});
+
 app.post("/review", async (req, res) => {
   try {
     if ((!req.body.name, !req.body.email, !req.body.message)) {

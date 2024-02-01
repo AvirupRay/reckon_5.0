@@ -12,7 +12,7 @@ const Header = () => {
   const userInformation = useSelector((state) => state.userinfo.userInfos);
   const Dispatch = useDispatch();
   const darkMode = useSelector((state) => state.mode.darkMode);
-  console.log(userInformation);
+  // console.log(userInformation);
 
   const logoutcall = () => {
     setlogOutCheck(true);
@@ -90,8 +90,10 @@ const Header = () => {
         >
           Contact Us
         </NavLink>
-        {userInformation.usertype == "supplier" &&
-        userInformation.usertype != "" ? (
+        {userInformation == undefined ? (
+          <></>
+        ) : userInformation.usertype == "supplier" &&
+          userInformation.usertype != "" ? (
           <NavLink
             to="/supplier"
             className={({ isActive }) =>
@@ -107,8 +109,10 @@ const Header = () => {
         ) : (
           <></>
         )}
-        {userInformation.usertype == "collector" &&
-        userInformation.usertype != "" ? (
+        {userInformation == undefined ? (
+          <></>
+        ) : userInformation.usertype == "collector" &&
+          userInformation.usertype != "" ? (
           <NavLink
             to="/collector"
             className={({ isActive }) =>
@@ -124,17 +128,9 @@ const Header = () => {
         ) : (
           <></>
         )}
+
         <div className="h-[6.2vh] self-center  w-[28vw] ml-auto px-[1vw] mx-[2vw] flex items-center justify-evenly gap-[2vw]">
-          {userInformation.username != "" ? (
-            <>
-              <button
-                className="  bg-[#ca5151f6] px-[1vw] py-[.8vh] rounded-lg font-Arimo font-medium text-white shadow-inner"
-                onClick={logoutcall}
-              >
-                Logout
-              </button>
-            </>
-          ) : (
+          {userInformation == undefined || userInformation.username == "" ? (
             <>
               <button
                 className="  bg-[#478a47f6] px-[1vw] py-[.8vh] rounded-lg font-Arimo font-medium text-white shadow-inner"
@@ -143,6 +139,15 @@ const Header = () => {
                 }}
               >
                 Login
+              </button>
+            </>
+          ) : (
+            <>
+              <button
+                className="  bg-[#ca5151f6] px-[1vw] py-[.8vh] rounded-lg font-Arimo font-medium text-white shadow-inner"
+                onClick={logoutcall}
+              >
+                Logout
               </button>
             </>
           )}
@@ -166,7 +171,11 @@ const Header = () => {
             />
           </div>
           <div className=" flex items-center justify-evenly bg-transparent rounded w-[13vw]  shadow-inner backdrop-blur-md h-[5.6vh] ml-auto border-[.13rem]">
-            {userInformation.username != "" ? (
+            {userInformation == undefined || userInformation.username == "" ? (
+              <>
+                <button>Login Now</button>
+              </>
+            ) : (
               <>
                 <div className=" flex-1">
                   <img
@@ -185,10 +194,6 @@ const Header = () => {
                     </span>
                   </div>
                 </div>
-              </>
-            ) : (
-              <>
-                <button>Login Now</button>
               </>
             )}
           </div>
