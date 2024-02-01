@@ -10,12 +10,14 @@ function Cards({
   details,
   order,
   setOrder,
+  supplierName,
 }) {
+  // console.log(supplierName);
   const box = useRef(null);
   const [des, setDes] = useState(false);
 
   const added = () => {
-    console.log("add called", name);
+    // console.log("add called", name);
     const isFound = order.some((i) => {
       if (i.id === id) {
         return true;
@@ -23,6 +25,7 @@ function Cards({
         return false;
       }
     });
+
     console.log(isFound);
     if (!isFound) {
       setOrder([...order, { id, name, quantity, date, location, details }]);
@@ -50,11 +53,13 @@ function Cards({
           <div className="w-[10vw]">Best Before : {date}</div>
           <div className="w-[10vw]">Location : {location}</div>
           <button
-            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500 "
+            type="submit"
+            className=" bg-[#A0BF6C] p-2 w-24 rounded-xl font-bold hover:bg-black hover:text-white transition-all duration-500  disabled:bg-slate-400"
             onClick={added}
           >
             Add
           </button>
+
           <button onClick={more} className="text-3xl">
             {des ? <IoIosArrowDropup /> : <IoIosArrowDropdownCircle />}
           </button>
@@ -65,8 +70,12 @@ function Cards({
           ref={box}
         >
           {/* todo */}
-          <div className=" font-bold font-mono text-xl mt-4">Supplier Name</div>
-          <div className=" bg-white p-2 rounded-xl">{details}</div>
+          <div className=" font-medium absolute font-Arimo bg-[#445544] px-[.7vw] py-[.5vh] text-[#fffffd] rounded-lg top-[3.2vh] left-[3%]">
+            Suuplier Name: {supplierName}
+          </div>
+          <div className=" bg-white px-[2.2vw] py-2 rounded-xl mt-[6vh] shadow-md text-[#303030] font-FiraSans">
+            {details}
+          </div>
         </div>
       </div>
     </>

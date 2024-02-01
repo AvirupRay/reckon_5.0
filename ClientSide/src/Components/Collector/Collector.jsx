@@ -45,21 +45,28 @@ const Collector = () => {
             <div className=" bg-[#b0cf7a] h-full rounded-lg shadow-inner overflow-x-scroll scrollbar-hide px-[1.2vw] py-[1.5vh] flex gap-[.5vw] justify-start">
               {order.map((i) => (
                 <div
-                  className=" bg-[#f9fce5] w-[18vw] h-full rounded-lg px-4 py-2"
+                  className=" bg-[#f9fce5] drop-shadow-md w-[18vw] h-[full] rounded-lg px-[1.1vw] py-[1vh] flex flex-col justify-center items-start flex-wrap"
                   key={i.name}
                 >
-                  {i.name} {"\t"} {i.quantity}
-                  <br />
-                  {i.date} {"\t"}
-                  {i.location}
+                  <span className=" font-Arimo font-[450] text-[1.3vw]">
+                    {i.name}
+                  </span>
+                  <div className=" flex justify-evenly w-full text-[#353535] font-Arimo">
+                    <span className="flex-1 w-[10%] ">
+                      Quantity: {i.quantity}
+                    </span>
+                    <span className="  flex-[1.5] text-center">
+                      {i.location}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
             <button
-              className="absolute bottom-[1vh] font-semibold right-[14vw] bg-[#b0cf7a] p-1 rounded-3xl text-black border-2 border-black hover:text-white hover:bg-black transition-colors active:scale-90"
+              className="absolute bottom-[1vh] font-semibold right-[14vw] bg-[#ff4141] p-1 rounded-3xl text-[#ffffff] border-2 border-[#b13232] hover:text-[#ffeeee] hover:bg-[#b13237]  active:scale-90 transition-all"
               onClick={trashed}
             >
-              <Trash2 size={15} />
+              <Trash2 className=" w-[1.75vw]" />
             </button>
             <button className=" absolute bottom-[1vh] font-semibold right-[3.5vw] bg-[#b0cf7a] px-[2vw] py-[.8vh] rounded-3xl text-black border-2 border-black hover:text-white hover:bg-black transition-colors">
               Checkout
@@ -94,6 +101,7 @@ const Collector = () => {
                   details={i.details}
                   order={order}
                   setOrder={setOrder}
+                  supplierName={i.username}
                 />
               ))}
             </div>
