@@ -1,5 +1,3 @@
-# reckon_5.0 (Cypher)
-
 # RobinFood
 
 RobinFood is a web platform that bridges the gap between restaurants with surplus food and non-governmental organization (NGOs),food banks, dedicated to distributing food to those in need. This project aims to reduce food waste by facilitating the efficient and timely donation of excess food from restaurants to organizations that can redirect it to individuals facing food insecurity.
